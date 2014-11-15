@@ -5,58 +5,92 @@ title: Events | Tikal
 header_title: Events
 header_subtitle: Stay tuned with Tikal's Fullstack community upcoming Meetup events
 ---
-<div id="main" ng-app="meetups-module">
-     <div class="region region-content" ng-controller="Sn.MainCtrl as mainCtrl" >
+<div ng-app="events-module">
+    <div id="main" >
+        <div class="region region-content" ng-controller="Sn.MainCtrl as mainCtrl" >
         <!--   <h1>{% raw %}{{mainCtrl.appTitle}}{% endraw %}</h1> -->
-          <div id="meetups" ng-controller="Sn.MeetupsCtrl as meetupsCtrl">
+            <div id="meetups" ng-controller="Sn.MeetupsCtrl as meetupsCtrl">
 
-            <section id="block-tikal-meetup-meetup-upcoming-events" class="block block-tikal-meetup block-even">
-                  <meetup-event
-                        title="UPCOMING EVENTS"
-                        meetups="meetupsCtrl.meetupsByStatus.upcoming"
-                        ng-show="meetupsCtrl.meetupsByStatus.upcoming.length"
-                        is-upcoming-event="true"
-                        rsvps="meetupsCtrl.meetupsRsvps"
-                  ></meetup-event>
-          	</section>
+                <section id="block-tikal-meetup-meetup-upcoming-events" class="block block-tikal-meetup block-even">
+                    <meetup-event
+                            title="UPCOMING EVENTS"
+                            meetups="meetupsCtrl.meetupsByStatus.upcoming"
+                            ng-show="meetupsCtrl.meetupsByStatus.upcoming.length"
+                            is-upcoming-event="true"
+                            rsvps="meetupsCtrl.meetupsRsvps"
+                            ></meetup-event>
+                </section>
 
-            <section class="block block-tikal-meetup block-odd" id="block-tikal-meetup-meetup-past-events" ng-cloack>
-                <meetup-event
-                    title="PAST EVENTS"
-                    meetups="meetupsCtrl.meetupsByStatus.past"
-                    ng-show="meetupsCtrl.meetupsByStatus.past.length"
-                    rsvps="meetupsCtrl.meetupsRsvps"
-                ></meetup-event>
-          			<div class="pager" id="load-more-events" style="cursor: pointer;" ng-click="meetupsCtrl.loadMore()">Load More</div>
-            </section>
+                <section class="block block-tikal-meetup block-odd" id="block-tikal-meetup-meetup-past-events" ng-cloack>
+                    <meetup-event
+                            title="PAST EVENTS"
+                            meetups="meetupsCtrl.meetupsByStatus.past"
+                            ng-show="meetupsCtrl.meetupsByStatus.past.length"
+                            rsvps="meetupsCtrl.meetupsRsvps"
+                            ></meetup-event>
+                    <div class="pager" id="load-more-events" style="cursor: pointer;" ng-click="meetupsCtrl.loadMore()">Load More</div>
+                </section>
 
-          </div>
-    </div>
-  </div>
-  <aside role="complementary" class="sidebar" id="sidebar-second">
-    <div class="region region-sidebar-second">
-      <div class="block block-block block-odd" id="block-block-12">
-        <div class="content">
-          <p><a href="http://www.meetup.com/full-stack-developer-il/" target="_blank">meetup</a></p>
-        </div><!-- /.content -->
-      </div><!-- /.block -->
-      <!--
-      
-      <section class="block block-tikal-meetup block-even" id="block-tikal-meetup-meetup-events-calendar">
-        <h2 class="block-title">Event Calendar</h2>
-        <div class="content">
-          <div class="calendar-wrap">
-            <div id="calendar"><div><span id="currentmonth">June</span> <span id="currentyear">2014</span></div><div><span id="icalprev">&lt;</span><span id="icalnext">&gt;</span></div><table cellspacing="0" class="icaltable"><thead><tr><th>Su</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></thead><tfoot><tr><th>Su</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></tfoot><tbody><tr><td class="padding"></td><td class="padding"></td><td class="padding"></td><td class="padding"></td><td id="2014-05-01">1</td><td id="2014-05-02">2</td><td id="2014-05-03">3</td></tr><tr><td id="2014-05-04">4</td><td id="2014-05-05">5</td><td id="2014-05-06">6</td><td id="2014-05-07">7</td><td id="2014-05-08">8</td><td id="2014-05-09">9</td><td id="2014-05-10">10</td></tr><tr><td id="2014-05-11">11</td><td id="2014-05-12">12</td><td id="2014-05-13">13</td><td id="2014-05-14">14</td><td id="2014-05-15">15</td><td id="2014-05-16">16</td><td id="2014-05-17">17</td></tr><tr><td id="2014-05-18">18</td><td id="2014-05-19">19</td><td id="2014-05-20">20</td><td id="2014-05-21">21</td><td id="2014-05-22" class="today">22</td><td id="2014-05-23">23</td><td id="2014-05-24">24</td></tr><tr><td id="2014-05-25">25</td><td id="2014-05-26">26</td><td id="2014-05-27">27</td><td id="2014-05-28">28</td><td id="2014-05-29">29</td><td id="2014-05-30">30</td><td id="2014-05-31">31</td></tr></tbody></table>
             </div>
-            <script>
-              var events = eval(Drupal.settings.tikalMeetup.events);
-              jQuery('#calendar').ical({startOnSunday: true,
-              daynames: ['Su', 'M', 'T', 'W', 'T', 'F', 'S'],
-              monthnames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
-              eventdates: events });
-            </script>
-          </div>
-        </div>&lt;!&ndash; /.content &ndash;&gt;
-      </section>-->
+        </div>
     </div>
-  </aside>
+    <aside role="complementary" class="sidebar" id="sidebar-second">
+        <div class="region region-sidebar-second">
+            <div class="block block-block block-odd" id="block-block-12">
+                <div class="content">
+                    <p><a href="http://www.meetup.com/full-stack-developer-il/" target="_blank">meetup</a></p>
+                </div><!-- /.content -->
+            </div><!-- /.block -->
+            <!--
+
+            <section class="block block-tikal-meetup block-even" id="block-tikal-meetup-meetup-events-calendar">
+              <h2 class="block-title">Event Calendar</h2>
+              <div class="content">
+                <div class="calendar-wrap">
+                  <div id="calendar"><div><span id="currentmonth">June</span> <span id="currentyear">2014</span></div><div><span id="icalprev">&lt;</span><span id="icalnext">&gt;</span></div><table cellspacing="0" class="icaltable"><thead><tr><th>Su</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></thead><tfoot><tr><th>Su</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr></tfoot><tbody><tr><td class="padding"></td><td class="padding"></td><td class="padding"></td><td class="padding"></td><td id="2014-05-01">1</td><td id="2014-05-02">2</td><td id="2014-05-03">3</td></tr><tr><td id="2014-05-04">4</td><td id="2014-05-05">5</td><td id="2014-05-06">6</td><td id="2014-05-07">7</td><td id="2014-05-08">8</td><td id="2014-05-09">9</td><td id="2014-05-10">10</td></tr><tr><td id="2014-05-11">11</td><td id="2014-05-12">12</td><td id="2014-05-13">13</td><td id="2014-05-14">14</td><td id="2014-05-15">15</td><td id="2014-05-16">16</td><td id="2014-05-17">17</td></tr><tr><td id="2014-05-18">18</td><td id="2014-05-19">19</td><td id="2014-05-20">20</td><td id="2014-05-21">21</td><td id="2014-05-22" class="today">22</td><td id="2014-05-23">23</td><td id="2014-05-24">24</td></tr><tr><td id="2014-05-25">25</td><td id="2014-05-26">26</td><td id="2014-05-27">27</td><td id="2014-05-28">28</td><td id="2014-05-29">29</td><td id="2014-05-30">30</td><td id="2014-05-31">31</td></tr></tbody></table>
+                  </div>
+                  <script>
+                    var events = eval(Drupal.settings.tikalMeetup.events);
+                    jQuery('#calendar').ical({startOnSunday: true,
+                    daynames: ['Su', 'M', 'T', 'W', 'T', 'F', 'S'],
+                    monthnames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+                    eventdates: events });
+                  </script>
+                </div>
+              </div>&lt;!&ndash; /.content &ndash;&gt;
+            </section>-->
+
+            <div id="block-tikal-fbgroup-feed-fbgroup-feed" ng-controller="FeedCtrl">
+                <div class="content">
+                    <div class="view-container fb-group-feed-wrapper">
+                        <div class="fb-group-feed-header">
+                            <a class="fbgroup-feed-image" href="https://www.facebook.com/groups/225585444263260" target="_blank" title="Fullstack Developers Israel"></a>
+                            Join the discussion
+                        </div>
+                        <div class="fb-group-feed-title">
+                            <img src="https://fbstatic-a.akamaihd.net/rsrc.php/v2/y0/r/-HwODK0dBGZ.png">
+                            <h2><a>Fullstack Developers Israel</a></h2>
+                        </div>
+
+                        <div class="fb-group-feed-body">
+                            <div ng-repeat="feed in data" class="fb-group-feed-post">
+                                <a href={% raw %}{{feed.profilePage}}{% endraw %} title="View " + {% raw %}{{feed.authorName}}{% endraw %} + "\'s profile" target="_blank">
+                                <img border="0" title={% raw %}{{feed.authorName}}{% endraw %}  alt={% raw %}{{feed.authorName}}{% endraw %} src={% raw %}{{feed.image}}{% endraw %}>
+                                </a>
+                                <div class="fb-group-feed-post-author">
+                   <span>By <a href={% raw %}{{feed.profilePage}}{% endraw %} target="_blank">{% raw %}{{feed.authorName}}{% endraw %}</a>
+                   </span>
+                                    <span>{% raw %}{{feed.created | dateSuffix}}{% endraw %}</span>
+                                </div>
+                                <div class="fb-group-feed-post-message">
+                                    <a href={% raw %}{{feed.postMessage}}{% endraw %} target="_blank">{% raw %}{{feed.message | cut:true:100}}{% endraw %}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+</div>

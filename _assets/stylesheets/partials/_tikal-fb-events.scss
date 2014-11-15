@@ -1,0 +1,69 @@
+#block-tikal-fbgroup-feed-fbgroup-feed{
+  width:295px;
+  padding:10px;
+  font-family:Open sans;
+  border:1px solid #e4e4e4;
+  background-color: white;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed a{
+  text-decoration:none;
+  color:black;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-header{
+  margin:17px 0 0 0;
+  font-weight:600;
+  font-size:1.5em;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-header .fbgroup-feed-image{
+  display:block;
+  height:113px;
+  width:316px;
+  padding-bottom:8px;
+  background: url('http://tikalk.com/sites/all/themes/sasson/tikal/images/banners/facebook-button-small.jpg') no-repeat;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-title h2{
+  display:inline;
+  font-size:18px;
+  font-weight:400;
+  font-family:Open sans;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-body{
+  padding:5px;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-body .fb-group-feed-post{
+  clear:both;
+  padding-bottom:15px;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-body .fb-group-feed-post:after{
+  content:"";
+  display:table;clear:both;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-body .fb-group-feed-post>a{
+  float:left;
+  padding-right:10px;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-body .fb-group-feed-post .fb-group-feed-post-author{
+  font-size:13px;
+}
+
+#block-tikal-fbgroup-feed-fbgroup-feed .fb-group-feed-wrapper .fb-group-feed-body .fb-group-feed-post .fb-group-feed-post-message{
+  overflow:hidden;
+  margin:0 0 10px -2px;
+  font-size:13px;
+  line-height:22px;
+  float:left;
+  max-width:227px;
+}
+
+.section-events #block-tikal-fbgroup-feed-fbgroup-feed{
+  margin-top:20px;
+}
