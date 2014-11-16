@@ -4595,13 +4595,16 @@ div.tabs ul.primary
 .view-author .views-field-picture
 {
   width:306px;
-  height:227px;
+  text-align: center;
   overflow:hidden
 }
+
 .view-author .views-field-picture img
 {
   width:100%
 }
+
+
 .view-author .views-field-field-first-name,.view-author .views-field-field-last-name
 {
   margin-top:9px;

@@ -9,9 +9,9 @@
                 <div class="views-field views-field-picture">        
                   <div class="field-content">
                     {% if page.user_image_path %}
-                      <img src="{{ page.user_image_path | asset_path }}" width="307" height="230" alt="">
+                      <img src="{{ page.user_image_path | asset_path }}" alt="">
                     {% else %}
-                      <img src="{% asset_path pictures/profile-default.jpg %}" width="307" height="230" alt="">
+                      <img src="{% asset_path pictures/profile-default.jpg %}" max-width="307" max-height="230" alt="">
                     {% endif %}
                   </div>  
                 </div>  

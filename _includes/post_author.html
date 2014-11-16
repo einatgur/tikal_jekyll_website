@@ -6,7 +6,7 @@
           <div class="views-field views-field-picture">
             <div class="field-content">
               {% if page.user.image_path %}
-                <img typeof="foaf:Image" src="{{ page.user.image_path | asset_path }}" width="307" height="230" alt="">
+                <img typeof="foaf:Image" src="{{ page.user.image_path | asset_path }}" alt="">
               {% else %}
                 <img src="{% asset_path pictures/profile-default.jpg %}" width="307" height="230" alt="">
               {% endif %}
