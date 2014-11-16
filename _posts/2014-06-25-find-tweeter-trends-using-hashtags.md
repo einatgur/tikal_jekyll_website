@@ -14,7 +14,7 @@ tags:
 
 <p>With our team we had six SW developers, plus&nbsp;two Dev-Ops developers, and we set our goal in the morning &ndash; &ldquo;Create a simple application that analyzes Tweeter hashtags&rdquo;. We analyzed a big file filled with tweets (simulating on-line tweets), by extracting the date and hashtags per each tweet, accumulating the hashtag for a short period of time by intervals (1 sec each interval), and emit the aggregations into analytic storage. Then, yet another web application, provided a display API for examining the results in a bar-chart as the figure bellow</p>
 
-<p><img alt="" src="/sites/default/files/images/Screen%20Shot%202014-06-24%20at%2018_35_05.png" style="width: 1202px; height: 623px;" /></p>
+<p><img alt="" src="{% asset_path default/Screen-Shot-2014-06-24-at-18_35_05.png %}" style="width: 1202px; height: 623px;" /></p>
 
 <p><span style="line-height: 1.6em;">As you can see in the graph above, it can reveal the highest trending hashtags in the last few minutes.</span></p>
 
@@ -24,7 +24,7 @@ tags:
 
 <p>We decided to create two decoupled services: <a href="https://github.com/tikalk/hashtag_processor">Hashtags processor</a> which does the logic for handling the stream, and a <a href="https://github.com/tikalk/hashtag_service/">Web application Service</a> which reads the stored results upon user requests. Here is the context view diagram for it:</p>
 
-<p><img alt="" src="/sites/default/files/images/architecture.png" style="width: 901px; height: 555px;" /></p>
+<p><img alt="" src="{% asset_path default/architecture.png %}" style="width: 901px; height: 555px;" /></p>
 
 <p>&nbsp;</p>
 
@@ -32,11 +32,11 @@ tags:
 
 <p>We chose to use <a href="https://storm.incubator.apache.org/">Storm</a> as our real time processor. You can look at the following Storm topology we created:</p>
 
-<p><img alt="" src="/sites/default/files/images/topology.png" /></p>
+<p><img alt="" src="{% asset_path default/topology.png %}" /></p>
 
 <p>We created a <a href="https://github.com/tikalk/hashtag_processor/blob/master/src/main/java/com/tikal/fullstack/thashtag/topology/spouts/TweetsFileSpout.java">TweetsFileSpout</a> that reads the tweets from the file. Then we created a <a href="https://github.com/tikalk/hashtag_processor/blob/master/src/main/java/com/tikal/fullstack/thashtag/topology/bolts/HashtagTokenizerBolt.java">tokenizer bolt</a>, extracting date and hashtags for each and every tweet. The next bolt is the <a href="https://github.com/tikalk/hashtag_processor/blob/master/src/main/java/com/tikal/fullstack/thashtag/topology/bolts/HashtagAggregatorBolt.java">aggregator bolt</a>, which is connected back to the tokenizer bolt with hashtag &ldquo;field grouping&rdquo;, making sure all identical hashtags are been accumulated in the same bolt &ldquo;task&rdquo; (instance). The aggregator bolt accumulates hashtags in a map keyed by tweets intervals, and upon &ldquo;tick&rdquo; tuple emitted by Storm (configured 3 sec), it emits all accumulated tags counting to the last bolt - <a href="https://github.com/tikalk/hashtag_processor/blob/master/src/main/java/com/tikal/fullstack/thashtag/topology/bolts/HashtagPersistorBolt.java">persister bolt</a>. The persister bolt saves all hashtags counting to&nbsp;<a href="http://redis.io/">Redis</a>. Redis is a special key-value DB,&nbsp;that enables putting <a href="http://redis.io/topics/data-types">a few types</a> as the value. Specifically, the key in our Redis database is the time-interval, while the value is Redis&#39;s &ldquo;hash&rdquo; - mapping each hashtag to its accumulated counting in this interval (see next figure for the data model in Redis):</p>
 
-<p><img alt="" src="/sites/default/files/images/redis-data.png" style="width: 611px; height: 415px;" /></p>
+<p><img alt="" src="{% asset_path default/redis-data.png %}" style="width: 611px; height: 415px;" /></p>
 
 <h1>Hashtag Service</h1>
 

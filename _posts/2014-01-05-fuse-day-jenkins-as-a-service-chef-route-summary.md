@@ -59,13 +59,13 @@ tags:
 
 <p>The way we achieved that was by creating a chef role and instructed the Vagrant provisioner to use it:</p>
 
-<p><img src="/sites/default/files/images/image001.png" style="border-width: 0px; border-style: solid; width: 407px; height: 209px;" /></p>
+<p><img src="{% asset_path default/image001.png %}" style="border-width: 0px; border-style: solid; width: 407px; height: 209px;" /></p>
 
 <p>So our cookbook at this stage is empty, no need to do anything for this first instance!</p>
 
 <p>The key in this is our <strong><em>chef.add_role</em></strong>, which sets some parameters used by the Jenkins cookbook:</p>
 
-<p><img src="/sites/default/files/images/image004.png" style="border-width: 0px; border-style: solid; width: 344px; height: 242px;" /></p>
+<p><img src="{% asset_path default/image004.png %}" style="border-width: 0px; border-style: solid; width: 344px; height: 242px;" /></p>
 
 <p>&nbsp;</p>
 
@@ -87,17 +87,17 @@ tags:
 
 <p>We came up with this 1<sup>st</sup> version of databag:</p>
 
-<p><img src="/sites/default/files/images/image006.png" style="border-width: 0px; border-style: solid; width: 434px; height: 156px;" /></p>
+<p><img src="{% asset_path default/image006.png %}" style="border-width: 0px; border-style: solid; width: 434px; height: 156px;" /></p>
 
 <p>And whilst we were using data bags we thought why not hold the plugin-sets in a database too like so:</p>
 
 <p>The base databag:</p>
 
-<p><img src="/sites/default/files/images/image008.png" style="border-width: 0px; border-style: solid; width: 245px; height: 129px;" /></p>
+<p><img src="{% asset_path default/image008.png %}" style="border-width: 0px; border-style: solid; width: 245px; height: 129px;" /></p>
 
 <p>A Stack (Java) specific databag:</p>
 
-<p><img src="/sites/default/files/images/image010.png" style="border-width: 0px; border-style: solid; width: 196px; height: 145px;" /></p>
+<p><img src="{% asset_path default/image010.png %}" style="border-width: 0px; border-style: solid; width: 196px; height: 145px;" /></p>
 
 <p>At this stage we started to understand how we could use the chef paradigm utilizing the node object and define a service, we had to do the following:</p>
 

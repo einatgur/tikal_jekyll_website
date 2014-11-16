@@ -17,7 +17,7 @@ tags:
 
 <p>How does it work (See diagram)? &nbsp;An Android WebView is connected remotely to an Angular application that utilizes SignalR to communicate between the Android devices and the desktop clients. &nbsp;A light WebView bridge was built in order to connect the signals recieved from the WebView (running an&nbsp;Angular application utilizing SignalR) to a native YouTubePlayerView in order to play videos upon request.</p>
 
-<p><img alt="" src="/sites/default/files/images/Slide1.PNG" style="width: 960px; height: 720px;" /></p>
+<p><img alt="" src="{% asset_path default/Slide1.PNG %}" style="width: 960px; height: 720px;" /></p>
 
 <p>The light Android bridge allows code re-use on the remotely hosted Angular application. &nbsp;This offers two main advantages:</p>
 

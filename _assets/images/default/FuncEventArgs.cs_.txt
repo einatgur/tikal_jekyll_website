@@ -1,0 +1,73 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Events
+{
+
+	public class FuncEventArgs<TResult> : EventArgs
+    {
+        public TResult Result { get; set; }
+
+        public FuncEventArgs()
+        {
+            Result = default(TResult);
+        }
+    }
+
+    public class FuncEventArgs<T1, TResult> : FuncEventArgs<TResult>
+    {
+        public T1 Parameter1
+        {
+            get;
+            private set;
+        }
+
+        public FuncEventArgs(T1 param) : base()
+        {
+            Parameter1 = param;
+        }
+    }
+
+    public class FuncEventArgs<T1, T2, TResult> : FuncEventArgs<T1, TResult>
+    {
+        public T2 Parameter2
+        {
+            get;
+            private set;
+        }
+
+        public FuncEventArgs(T1 param1, T2 param2) : base(param1)
+        {
+            Parameter2 = param2;
+        }
+    }
+
+    public class FuncEventArgs<T1, T2, T3, TResult> : FuncEventArgs<T1, T2, TResult>
+    {
+        public T3 Parameter3
+        {
+            get;
+            private set;
+        }
+
+        public FuncEventArgs(T1 param1, T2 param2, T3 param3) : base(param1, param2)
+        {
+            Parameter3 = param3;
+        }
+    }
+
+    public class FuncEventArgs<T1, T2, T3, T4, TResult> : FuncEventArgs<T1, T2, T3, TResult>
+    {
+        public T4 Parameter4
+        {
+            get;
+            private set;
+        }
+
+        public FuncEventArgs(T1 param1, T2 param2, T3 param3, T4 param4) : base(param1, param2, param3)
+        {
+            Parameter4 = param4;
+        }
+    }
+
+}

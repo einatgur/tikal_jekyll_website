@@ -37,7 +37,7 @@ tags:
 
 <p>Here&#39;s an example of a test-store as I&#39;ve presentated in my presentation:</p>
 
-<p><img alt="" src="/sites/default/files/images/TestStore.png" style="width: 400px; height: 300px;" /></p>
+<p><img alt="" src="{% asset_path default/TestStore.png %}" style="width: 400px; height: 300px;" /></p>
 
 <p>Enjoy.</p>
 

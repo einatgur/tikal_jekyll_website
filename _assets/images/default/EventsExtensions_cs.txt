@@ -1,0 +1,147 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+
+namespace Events
+{
+    /// <summary>
+    /// <see cref="http://msdn.microsoft.com/en-us/library/db0etb8x.aspx"/>
+    /// </summary>
+    public static partial class EventsExtensions
+    {
+        #region Raising
+
+		[DebuggerStepThrough]
+		public static void Raise<T>(this EventHandler<T> handler, object sender, T eventArgs) where T : EventArgs
+		{
+			//Copy to a temporary variable to be thread-safe.
+			EventHandler<T> temp = handler;
+			if (temp != null)
+			{
+				temp(sender, eventArgs);
+			}
+		}
+
+		[DebuggerStepThrough]
+		public static void Raise<T>(this EventHandler<T> handler, object sender) where T : EventArgs
+		{
+			handler.Raise(sender, default(T));
+		}
+
+		[DebuggerStepThrough]
+		public static void Raise<T>(this EventHandler<T> handler) where T : EventArgs
+		{
+			handler.Raise(null);
+		}
+
+		[DebuggerStepThrough]
+		public static void Raise(this EventHandler handler, object sender, EventArgs eventArgs)
+		{
+			//Copy to a temporary variable to be thread-safe.
+			EventHandler temp = handler;
+			if (temp != null)
+			{
+				temp(sender, eventArgs);
+			}
+		}
+
+		[DebuggerStepThrough]
+		public static void Raise(this EventHandler handler, object sender)
+		{
+			handler.Raise(sender, EventArgs.Empty);
+		}
+
+		[DebuggerStepThrough]
+		public static void Raise(this EventHandler handler)
+		{
+			handler.Raise(null, EventArgs.Empty);
+		}
+
+        #endregion
+
+        #region CancelPanding
+
+        [DebuggerStepThrough]
+        public static bool CancelPending<T>(this EventHandler<T> handler, object sender, T eventArgs) where T : CancelEventArgs
+        {
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Cancel;
+        }
+
+        [DebuggerStepThrough]
+        public static bool CancelPending<T>(this EventHandler<T> handler, object sender) where T : CancelEventArgs, new()
+        {
+            T ceArgs = new T();
+            return handler.CancelPending(sender, ceArgs);
+        }
+
+        [DebuggerStepThrough]
+        public static bool CancelPending(this EventHandler handler, object sender, CancelEventArgs eventArgs)
+        {
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Cancel;
+        }
+
+        [DebuggerStepThrough]
+        public static bool CancelPending(this EventHandler handler, object sender)
+        {
+            CancelEventArgs eventArgs = new CancelEventArgs();
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Cancel;
+        }
+
+        #endregion
+
+        #region GetResultFromEvent
+        
+        [DebuggerStepThrough]
+        public static T GetResultFromEvent<T>(this EventHandler<FuncEventArgs<T>> handler,
+                                          object sender,
+                                          FuncEventArgs<T> eventArgs)
+        {
+            
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Result;
+        }
+
+        [DebuggerStepThrough]
+        public static T GetResultFromEvent<P1, T>(this EventHandler<FuncEventArgs<P1, T>> handler,
+                                              object sender,
+                                              FuncEventArgs<P1, T> eventArgs)
+        {
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Result;
+        }
+
+        [DebuggerStepThrough]
+        public static T GetResultFromEvent<P1, P2, T>(this EventHandler<FuncEventArgs<P1, P2, T>> handler,
+                                                  object sender,
+                                                  FuncEventArgs<P1, P2, T> eventArgs)
+        {
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Result;
+        }
+
+        [DebuggerStepThrough]
+        public static T GetResultFromEvent<P1, P2, P3, T>(this EventHandler<FuncEventArgs<P1, P2, P3, T>> handler,
+                                                      object sender,
+                                                      FuncEventArgs<P1, P2, P3, T> eventArgs)
+        {
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Result;
+        }
+
+        [DebuggerStepThrough]
+        public static T GetResultFromEvent<P1, P2, P3, P4, T>(this EventHandler<FuncEventArgs<P1, P2, P3, P4, T>> handler,
+                                                          object sender,
+                                                          FuncEventArgs<P1, P2, P3, P4, T> eventArgs)
+        {
+            handler.Raise(sender, eventArgs);
+            return eventArgs.Result;
+        }
+
+        #endregion
+
+    }
+}

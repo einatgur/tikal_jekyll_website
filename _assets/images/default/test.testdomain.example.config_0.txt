@@ -1,0 +1,44 @@
+# testdomain - virtualbox example
+#
+# USAGE:
+#
+#    java -jar ~/work/opensso/tools/configurator.jar -f $PWD/test.testdomain.example.config
+
+# Basic configuration
+SERVER_URL=http://host1.testdomain.com:8080
+DEPLOYMENT_URI=/opensso
+#BASE_DIR=/home/tomcat/openan_9
+BASE_DIR=/u02/opensso
+locale=en_US
+PLATFORM_LOCALE=en_US
+AM_ENC_KEY=
+ADMIN_PWD=********
+AMLDAPUSERPASSWD=********  # note that this parameter MUST be different from the one immediately above it
+COOKIE_DOMAIN=.testdomain.com
+
+#### need to check on the settings below !!!!
+##
+###
+#
+# Configuration data store configuration
+DATA_STORE=dirServer
+DIRECTORY_SSL=SIMPLE
+DIRECTORY_SERVER=localhost
+DIRECTORY_PORT=1389
+DIRECTORY_ADMIN_PORT=4444
+DIRECTORY_JMX_PORT=1689
+ROOT_SUFFIX=dc=testdomain,dc=com
+DS_DIRMGRDN=cn=admin
+DS_DIRMGRPASSWD=*********
+
+
+# User data store configuration
+USERSTORE_TYPE=LDAPv3ForOpenDS
+USERSTORE_SSL=SIMPLE
+USERSTORE_HOST=localhost
+USERSTORE_PORT=1389
+USERSTORE_SUFFIX=dc=testdomain,dc=com
+USERSTORE_MGRDN=cn=admin
+USERSTORE_PASSWD=********
+
+

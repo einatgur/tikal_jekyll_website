@@ -8,7 +8,7 @@ tags:
 - DevOps
 ---
 <div class="entry-content">
-<p><img class="left" src="/sites/default/files/images/docker-logo-100x134.png" style="margin: 5px; border-width: 0px; border-style: solid; float: left;" title="'Docker logo'" /> As cool as Docker is there is quite a lot of stuff you need to start caring about, service discovery, orchestration, routing and so on, and there is a long line of technologies which help you achieve that, here is quite a long list just as an example:</p>
+<p><img class="left" src="{% asset_path default/docker-logo-100x134.png %}" style="margin: 5px; border-width: 0px; border-style: solid; float: left;" title="'Docker logo'" /> As cool as Docker is there is quite a lot of stuff you need to start caring about, service discovery, orchestration, routing and so on, and there is a long line of technologies which help you achieve that, here is quite a long list just as an example:</p>
 
 <ul>
 	<li><a href="https://coreos.com/">CoreOS</a> &ndash; The orchestrator / Container host operating system comes prepackaged with <a href="https://www.docker.com/">Docker</a>, <a href="https://github.com/coreos/etcd">etcd</a> &amp; <a href="https://github.com/coreos/fleet">fleet</a></li>
@@ -30,17 +30,17 @@ tags:
 
 <h4>So how can you simplify the development life-cycle of a containerized solution / system ?</h4>
 
-<p><img class="left" src="/sites/default/files/images/pmx_logo.png" title="'Panamax logo'" /> Panamax by <a href="http://www.centurylinklabs.com/">centurylinklabs</a> to the rescue. Panamax is (and I quote) a containerized app creator with an open-source app marketplace hosted in GitHub, I think the last bit is most important one the fact you can find on github a template of an existing &ldquo;containarized&rdquo; systems is awesome &ndash; very similar to the way you can share Docker files but here instead you get a <a href="http://www.fig.sh/">fig</a> file which describes your environment and &ldquo;tells&rdquo; your containers what to do, who to connect to etc. etc.</p>
+<p><img class="left" src="{% asset_path default/pmx_logo.png %}" title="'Panamax logo'" /> Panamax by <a href="http://www.centurylinklabs.com/">centurylinklabs</a> to the rescue. Panamax is (and I quote) a containerized app creator with an open-source app marketplace hosted in GitHub, I think the last bit is most important one the fact you can find on github a template of an existing &ldquo;containarized&rdquo; systems is awesome &ndash; very similar to the way you can share Docker files but here instead you get a <a href="http://www.fig.sh/">fig</a> file which describes your environment and &ldquo;tells&rdquo; your containers what to do, who to connect to etc. etc.</p>
 
 <h3>About Panamax</h3>
 
-<p><img class="left" src="/sites/default/files/images/coreos-100x100.png" style="width: 100px; height: 100px;" title="'CoreOs logo'" /> PanaMax is naturally based on CoreOs and has made some educated choices for example fleet and etcd which are shipped part of CoreOs, according to Lucas Carlson of <a href="http://www.centurylinklabs.com/">centurylinklabs</a> PanaMax will support other OS&rsquo;s and other orchestration frameworks in the future, as you may understand this was just released a few days ago (August 12 to be precise).</p>
+<p><img class="left" src="{% asset_path default/coreos-100x100.png %}" style="width: 100px; height: 100px;" title="'CoreOs logo'" /> PanaMax is naturally based on CoreOs and has made some educated choices for example fleet and etcd which are shipped part of CoreOs, according to Lucas Carlson of <a href="http://www.centurylinklabs.com/">centurylinklabs</a> PanaMax will support other OS&rsquo;s and other orchestration frameworks in the future, as you may understand this was just released a few days ago (August 12 to be precise).</p>
 
 <h4>Using Panamax</h4>
 
 <p>After <a href="https://www.youtube.com/watch?v=15IKkYCfymk#t=434">installing PanaMax</a> and you have panamax up and running on your local machine you can search for existing systems as an example lets take the <a href="https://raw.githubusercontent.com/CenturyLinkLabs/panamax-public-templates/master/piwik.pmx">piwik exmaple</a> by searching in our local panamax ui via <a href="http://localhost:8888/">http://localhost:8888</a> (the default)<!-- more --></p>
 
-<p><img class="left" src="/sites/default/files/images/panamax_search_piwik.png" style="height: 391px; width: 601px;" title="'piwik search'" /></p>
+<p><img class="left" src="{% asset_path default/panamax_search_piwik.png %}" style="height: 391px; width: 601px;" title="'piwik search'" /></p>
 
 <p>Pressing the &ldquo;run template&rdquo; button will result in panamax parsing the pmx(fig) yaml file:</p>
 
@@ -72,7 +72,7 @@ images:
 
 <p><span style="line-height: 1.6em;">Then panamax will download the docker images from the section above in this example: </span><a href="https://registry.hub.docker.com/u/cbeer/piwik/builds_history/31636/" style="line-height: 1.6em;">cbeer/piwik</a><span style="line-height: 1.6em;"> &amp; </span><a href="https://registry.hub.docker.com/u/centurylink/mysql/builds_history/38801/" style="line-height: 1.6em;">centurylink/mysql:5.5</a></p>
 
-<p><img class="left" src="/sites/default/files/images/panamax_run_piwik.png" style="width: 600px; height: 525px;" title="'piwik search'" /></p>
+<p><img class="left" src="{% asset_path default/panamax_run_piwik.png %}" style="width: 600px; height: 525px;" title="'piwik search'" /></p>
 
 <p>Once the docker images are downloaded and spawn up you can examine the CoreOS Journal log and see exactly what occurred:</p>
 
@@ -108,20 +108,20 @@ jenkins_latest.service   launched loaded   deactivating stop-sigterm   -        
 
 <figure class="code">&nbsp;</figure>
 
-<p>Of course you can examine each image / service separately from the UI and see the container linking / exposed ports. <img class="left" src="/sites/default/files/images/panamax_service_piwik.png" style="width: 601px; height: 484px;" title="'piwik serviceh'" /></p>
+<p>Of course you can examine each image / service separately from the UI and see the container linking / exposed ports. <img class="left" src="{% asset_path default/panamax_service_piwik.png %}" style="width: 601px; height: 484px;" title="'piwik serviceh'" /></p>
 
 <p>Same for the mysql image:<br />
-you can see the container exposed ports, and system variables which are used by piwik to connect. <img class="left" src="/sites/default/files/images/panamax_service_mysql.png" style="width: 601px; height: 360px;" title="'piwik service'" /></p>
+you can see the container exposed ports, and system variables which are used by piwik to connect. <img class="left" src="{% asset_path default/panamax_service_mysql.png %}" style="width: 601px; height: 360px;" title="'piwik service'" /></p>
 
-<p>The cool thing about panamax is &ldquo;forking&rdquo; a system by performing some changes and &ldquo;save as&rdquo; like so: <img class="left" src="/sites/default/files/images/panamax_save_changes.png" style="width: 600px; height: 263px;" title="'save as'" /></p>
+<p>The cool thing about panamax is &ldquo;forking&rdquo; a system by performing some changes and &ldquo;save as&rdquo; like so: <img class="left" src="{% asset_path default/panamax_save_changes.png %}" style="width: 600px; height: 263px;" title="'save as'" /></p>
 
 <p><span style="line-height: 1.6em;">The first time you do this you will need to create a github token &ndash; make sure you have the following settings:</span></p>
 
-<p><img class="left" src="/sites/default/files/images/github_app_token.png" style="height: 449px; width: 599px;" title="'github token'" /></p>
+<p><img class="left" src="{% asset_path default/github_app_token.png %}" style="height: 449px; width: 599px;" title="'github token'" /></p>
 
-<p>Now I should choose my github repository and publish it &hellip; <img class="left" src="/sites/default/files/images/panamax_saveas.png" style="width: 600px; height: 709px;" title="'panamax save as'" /></p>
+<p>Now I should choose my github repository and publish it &hellip; <img class="left" src="{% asset_path default/panamax_saveas.png %}" style="width: 600px; height: 709px;" title="'panamax save as'" /></p>
 
-<p>And a few seconds later i have my own clone out there &hellip; <img class="left" src="/sites/default/files/images/github_my_fork.png" style="height: 403px; width: 601px;" title="'piwik fork'" /></p>
+<p>And a few seconds later i have my own clone out there &hellip; <img class="left" src="{% asset_path default/github_my_fork.png %}" style="height: 403px; width: 601px;" title="'piwik fork'" /></p>
 
 <h4>To summarize</h4>
 

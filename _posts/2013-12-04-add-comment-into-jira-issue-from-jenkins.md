@@ -43,7 +43,7 @@ done</p>
 
 <p>and the result will look like that:</p>
 
-<p><img alt="" src="/sites/default/files/images/Untitled(1).jpg" style="width: 658px; height: 356px;" /></p>
+<p><img alt="" src="{% asset_path default/Untitled(1).jpg %}" style="width: 658px; height: 356px;" /></p>
 
 <p>&nbsp;</p>
 

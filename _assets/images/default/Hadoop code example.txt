@@ -1,0 +1,162 @@
+import java.io.IOException;
+import java.util.Iterator;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.JobClient;
+import org.apache.hadoop.mapred.JobConf;
+import org.apache.hadoop.mapred.MapReduceBase;
+import org.apache.hadoop.mapred.Mapper;
+import org.apache.hadoop.mapred.OutputCollector;
+import org.apache.hadoop.mapred.Reducer;
+import org.apache.hadoop.mapred.Reporter;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
+
+/**
+* class: EchoOhce
+* input:  one or more strings
+* output: an <original string, reversed string> pair for each one
+*
+*/
+public class EchoOhce extends Configured implements Tool {
+
+	/**
+	 * class Map
+	 */
+    public static class MapperImpl extends MapReduceBase
+        					implements Mapper<LongWritable, Text, Text, Text> 
+    {
+    	
+        private Text inputText = new Text();
+
+		private Text reverseText = new Text();
+
+        /**
+		 * Maps a single input key/value pair into an intermediate key/value
+		 * pair
+		 *
+		 * Assume that this is one result obtained from one execution of the
+		 * map() function on one of the nodes.
+		 * 
+		 * the framework executes this method on all the inputs that exist in the given node.
+		 */
+        public void map(LongWritable key, 
+        				
+        				/* the input string */
+        				Text inputs,
+        				
+        				/* contains the <original string, reversed string> mapping (mapper's output) */
+                        OutputCollector<Text, Text> output,
+                        
+                        Reporter reporter) 
+        throws IOException {
+
+				String inputString = inputs.toString();
+				int length = inputString.length();
+				StringBuffer reverse = new StringBuffer();
+				
+				for (int i = length - 1; i >= 0; i--)
+				{
+					reverse.append(inputString.charAt(i));
+				}
+				
+				inputText.set(inputString);
+				reverseText.set(reverse.toString());
+				
+				// Output pairs are collected with calls to the collect method
+				output.collect(inputText,reverseText);
+        }
+    }
+
+    /**
+     * A reducer class
+     */
+    public static class ReducerImpl extends MapReduceBase
+        					   implements Reducer<Text, Text, Text, Text> 
+    {
+    	
+    	/**
+    	 * what the framework does for the Reducer:
+    	 * 
+    	 * 1) Reducer's input is the grouped output of one or more mappers
+    	 * 2) The framework groups Reducer inputs by keys (different Mappers may have output the same key)
+    	 * 3) The shuffle and sort phases occur simultaneously i.e. while outputs are being fetched they are merged
+    	 * 
+    	 * what the reducer does:
+    	 * 1) the reduce() method is called for each <key, (list of values)> pair in the grouped inputs
+    	 * 2) The MapReduce framework knows how many OutputCollectors there are 
+    	 *    and which are to be combined for the final result
+    	 * 
+    	 * The output of the Reducer is not re-sorted
+    	 */
+        public void reduce(Text key, 
+        				   
+        					/* the output of the MapperImpl.map() */
+        				   Iterator<Text> values,
+        				   
+        				   /* collects the reduce() output */
+                           OutputCollector<Text, Text> output,
+                           
+                           Reporter reporter) 
+        throws IOException {
+            
+        	while (values.hasNext()) 
+        	{
+        		// writes the output to the file system
+                output.collect(key, values.next());
+            }
+        }
+    }
+
+  public int run(String[] args) throws Exception 
+  {
+    
+	  	// 1) Create a new JobConf (Configuration instance)
+		JobConf conf = new JobConf(getConf(), EchoOhce.class);
+		conf.setJobName("EchoOhce");
+
+		// 2) Set the key class for the job output data - the keys are strings
+		conf.setOutputKeyClass(Text.class);
+
+		// 3) Set the value class for job outputs - the values are reversed strings
+		conf.setOutputValueClass(Text.class);
+
+		// send your map and reduce implementations to the Hadoop framework for
+		// execution
+		
+		// 4) Set the Mapper class for the job
+		conf.setMapperClass(MapperImpl.class);
+
+		// 5) Set the Reducer class for the job
+		conf.setReducerClass(ReducerImpl.class);
+
+		// 6) set the input file path
+		conf.setInputPath(new Path("input_file_path"));
+
+		// 7) set the output file path
+		conf.setOutputPath(new Path("output_file_path"));
+
+		/*
+		 * invoke the runJob on the JobClient class, by passing in the JobConf instance.
+		 * 
+		 * JobClient internally communicates with the JobTracker class, and provides: 
+		 * - facilities for submission of jobs 
+		 * - tracking progress
+		 * - accessing the progress or logs 
+		 * - getting cluster status
+		 */
+		JobClient.runJob(conf);
+		return 0;
+  }
+
+
+  public static void main(String[] args) throws Exception {
+    int res = ToolRunner.run(new Configuration(), new EchoOhce(), args);
+    System.exit(res);
+  }
+
+}

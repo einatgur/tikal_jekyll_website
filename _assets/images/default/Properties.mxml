@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
+			   xmlns:properties="com.flexblackbelt.tests.properties.*">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			
+			/*******************************************************
+			 * varA:String
+			 *
+			 ********************************************************/
+			private var _varA:String = "aaaaa";
+			private var varAChanged:Boolean = false;
+			
+			public function set varA(value:String):void {
+				if (_varA != value) {
+					_varA = value;
+					varAChanged = true;
+					invalidateProperties();
+					dispatchEvent(new Event("varAChanged"));
+				}
+			}
+			
+			[Bindable("varAChanged")]
+			public function get varA():String {
+				return _varA;
+			}
+			
+			/*******************************************************
+			 * varB:String
+			 *
+			 ********************************************************/
+			private var _varB:String = "bbbbb";
+			private var varBChanged:Boolean = false;
+			
+			public function set varB(value:String):void {
+				if (_varB != value) {
+					_varB = value;
+					varBChanged = true;
+					invalidateProperties();
+					dispatchEvent(new Event("varBChanged"));
+				}
+			}
+			
+			[Bindable("varBChanged")]
+			public function get varB():String {
+				return _varB;
+			}
+			
+			
+			override protected function commitProperties() : void {
+				super.commitProperties();
+				
+				if (varBChanged) {
+					lblB.text = varB;
+					varBChanged = false;
+				}
+				
+				if (varAChanged) {
+					lblA.text = varA;
+					varB += varA;
+					varAChanged = false;
+				}
+				
+			}
+			
+			
+			protected function btn_clickHandler(event:MouseEvent):void {
+				varA = "a1a1a1a1";
+			}
+			
+			
+			
+		]]>
+	</fx:Script>
+	
+	
+	<s:Label id="lblA" />
+	
+	<s:Label id="lblB" y="100" />
+	
+	<s:Button id="btn" label="Change" y="250" click="btn_clickHandler(event)"/>
+	
+</s:Application>

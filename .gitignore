@@ -6,3 +6,4 @@ _site
 dump.rdb
 tikal_jekyll_website.iml
 node_modules
+.vagrant

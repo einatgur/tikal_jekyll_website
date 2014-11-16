@@ -35,7 +35,7 @@ tags:
 
 <p>We decided to decouple the data analysis process from the rest system components and use Mongo as a midleware for data exchange:</p>
 
-<p><img alt="" height="336" src="/sites/default/files/images/wc_hld.png" width="760" /></p>
+<p><img alt="" height="336" src="{% asset_path default/wc_hld.png %}" width="760" /></p>
 
 <p><span style="font-size:18px;">Data Driver</span></p>
 

@@ -1,0 +1,41 @@
+#!/bin/bash
+echo "Juniper connect will ask for your root password"
+echo "Do you have a root Password installed"
+read -p "(yes/no) "
+if [ "$REPLY" != "yes" ]; then
+	if [ "$REPLY" != "no" ]; then
+	read -p "Type yes or no : "
+	fi
+fi
+if [ "$REPLY" = "yes" ]; then
+echo "yes"
+sudo apt-get update
+sudo apt-get install firefox openssl libstdc++2.10-glibc2.2 sun-java6-bin sun-java6-jre
+jre=$(ls /home/bluegene/java-stuff/java/jdk1.6.0_05/jre/plugin/i386/ns7 | grep libjavaplugin_oji.so)
+plugins=$(ls /usr/lib/firefox | awk 'length < 8' | grep plugins)
+	if [ "$jre" = "libjavaplugin_oji.so" ] & [ "$plugins" = "plugins" ]; then
+	cd /usr/lib/firefox/plugins
+	sudo ln -s /home/bluegene/java-stuff/java/jdk1.6.0_05/jre/plugin/i386/ns7/libjavaplugin_oji.so
+	sudo ln -s /bin/true /usr/bin/rpm
+	cd /usr/lib/i686/cmov/
+	sudo ln -s libssl.so.0.9.8 /usr/lib/i686/cmov/libssl.so
+	fi
+echo "Start firefox and connect to server:"
+fi
+if [ "$REPLY" = "no" ]; then
+echo "no"
+sudo passwd root
+sudo apt-get update
+sudo apt-get install firefox openssl libstdc++2.10-glibc2.2 sun-java6-bin sun-java6-jre
+jre=$(ls /home/bluegene/java-stuff/java/jdk1.6.0_05/jre/plugin/i386/ns7 | grep libjavaplugin_oji.so)
+plugins=$(ls /usr/lib/firefox | awk 'length < 8' | grep plugins)
+	if [ "$jre" = "libjavaplugin_oji.so" ] & [ "$plugins" = "plugins" ]; then
+	cd /usr/lib/firefox/plugins
+	sudo ln -s /home/bluegene/java-stuff/java/jdk1.6.0_05/jre/plugin/i386/ns7/libjavaplugin_oji.so
+	sudo ln -s /bin/true /usr/bin/rpm
+	cd /usr/lib/i686/cmov/
+	sudo ln -s libssl.so.0.9.8 /usr/lib/i686/cmov/libssl.so
+	fi
+echo "Start firefox and connect to server:"
+fi
+exit 0

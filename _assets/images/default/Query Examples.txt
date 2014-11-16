@@ -1,0 +1,285 @@
+/******************************************FTS***********************************************************/
+/******************************************FTS***********************************************************/
+select * from tbl4_A
+where 
+id = -224984;
+
+/******************************************BTreeIDX***********************************************************/
+/******************************************BTreeIDX***********************************************************/
+
+select * from tbl4_A
+where 
+id = 724984;
+
+create unique index tbl4_idx on tbl4_B(ID) parallel 2;
+alter index tbl4_idx noparallel; 
+analyze index tbl4_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+--unique
+select * from tbl4_B
+where 
+id = 724984;
+
+--range
+select * from tbl4_B
+where 
+id in ( 724984, 12345);
+
+
+
+/******************************************ROW ID***********************************************************/
+/******************************************ROW ID***********************************************************/
+select rowid, a.* from tbl4_A a
+where rowid = 'AAAaexAAEAAAKcMAAA';
+
+
+
+/******************************************FTSvsIDX***********************************************************/
+/******************************************FTSvsIDX***********************************************************/
+
+select count(1) from tbl12_A;
+--5,242,880
+
+select count(1) from tbl12_A
+where
+id > 700000;
+--1396202
+
+------------------------------------FAVORE FTS------------------------------------
+select sum(num) from tbl12_A
+where
+id > 700000;
+
+--create index tbl12_idx on tbl12_B(ID) parallel 2;
+--alter index tbl12_idx noparallel; 
+--analyze index tbl12_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+
+select /*+ index(tbl12_B tbl12_idx) */ sum(num) from tbl12_B
+where
+id > 700000;
+
+------------------------------------FAVORE IDX------------------------------------
+select sum(num) from tbl12_A
+where 
+id in (724984, 21313, 44329,32,-321312,-953221);
+
+--create unique index tbl4_idx on tbl4_B(ID) parallel 2;
+--alter index tbl4_idx noparallel; 
+--analyze index tbl4_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+
+select sum(num) from tbl12_B
+where 
+id in (724984, 21313, 44329,32,-321312,-953221);
+
+
+
+/******************************************DML_IDX***********************************************************/
+/******************************************DML_IDX***********************************************************/
+create table tbl10_A (
+      ID NUMBER, 
+      TEXT VARCHAR2(87), 
+      TEXT2 VARCHAR2(10)
+      );
+      
+create table tbl10_B (
+      ID NUMBER, 
+      TEXT VARCHAR2(87), 
+      TEXT2 VARCHAR2(10)
+      );
+
+create index tbl10_idx on tbl10_B(TEXT,ID) parallel 2;
+alter index tbl10_idx noparallel;
+analyze index tbl10_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;      
+
+--no index
+insert into tbl10_A 
+select * from tbl11_A;
+
+--with index
+insert into tbl10_B 
+select * from tbl11_A;
+
+
+/******************************************cannot use Index due to function*************************************/
+/******************************************cannot use Index due to function***************************************/
+--create unique index tbl4_idx on tbl4_B(ID) parallel 2;
+--alter index tbl4_idx noparallel; 
+--analyze index tbl4_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+select * from tbl4_B
+where
+id = 10;
+
+select * from tbl4_B
+where
+id/2 = 5;
+
+
+
+/******************************************BITMAP_IDX***********************************************************/
+/******************************************BITMAP_IDX***********************************************************/
+select gender,count(1) from tbl7_A
+group by gender;
+
+--create bitmap index tbl7_idx on tbl7_B(gender) parallel 2;
+--alter index tbl7_idx noparallel;
+--analyze index tbl7_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+select gender,count(1) from tbl7_B
+group by gender;
+
+
+
+/******************************************CompositeIDX***********************************************************/
+/******************************************CompositeIDX***********************************************************/
+create index tbl5_idx on tbl5_B(id,my_number,text) parallel 2;
+alter index tbl5_idx noparallel;
+analyze index tbl5_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+select count(1) from tbl5_B
+where
+id = 59 and
+my_number = 16 and
+text = 'PART';
+
+select count(1) from tbl5_B
+where
+id = 59 and
+my_number = 16;
+
+select count(1) from tbl5_B
+where
+id = 39;
+
+
+/******************************************Composite - Index Skip Scanning***********************************************************/
+/******************************************Composite - Index Skip Scanning***********************************************************/
+select count(1) from tbl5_B
+where
+my_number = 16 and
+text = 'PART';
+
+select /*+ index(tbl5_B tbl5_idx) */ count(1) from tbl5_B
+where
+my_number = 16 and
+text = 'PART';
+
+
+
+
+
+/******************************************FunctionBasedIDX***********************************************************/
+/******************************************FunctionBasedIDX***********************************************************/
+select count(1) from tbl4_A
+where
+mod(id,946) = 17;
+
+--create index tbl4_md_idx on tbl4_B(mod(ID,946)) parallel 2;
+--alter index tbl4_md_idx noparallel;
+--analyze index tbl4_md_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+select count(1) from tbl4_B
+where
+mod(id,946) = 17;
+
+
+
+
+/******************************************Join order***********************************************************/
+/******************************************Join order***********************************************************/
+select count(1) from 
+tbl9_A,
+tbl6_A
+where
+tbl9_A.ID = tbl6_A.ID and
+tbl9_A.TEXT = tbl6_A.TEXT and
+tbl9_A.TEXT2 = tbl6_A.TEXT2;
+
+--create index tbl3_idx on tbl3_B(ID,TEXT) parallel 2;
+--alter index tbl3_idx noparallel;
+--analyze index tbl3_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+select count(1) from 
+tbl9_B,
+tbl6_B
+where
+tbl9_B.ID = tbl6_B.ID and
+tbl9_B.TEXT = tbl6_B.TEXT and
+tbl9_B.TEXT2 = tbl6_B.TEXT2;
+
+select /*+ ordered tbl1 */ count(1) from 
+tbl9_B,
+tbl6_B
+where
+tbl9_B.ID = tbl6_B.ID and
+tbl9_B.TEXT = tbl6_B.TEXT and
+tbl9_B.TEXT2 = tbl6_B.TEXT2;
+
+
+/******************************************Join IDXvsFTS***********************************************************/
+/******************************************Join IDXvsFTS***********************************************************/
+select count(1) from
+tbl3_A,
+tbl2_A,
+tbl1_A
+where
+tbl2_A.TEXT2 = 'PART' and
+tbl3_A.ID < 720000 and tbl3_A.ID > 690000 and
+tbl1_A.TEXT = tbl2_A.TEXT and
+tbl1_A.ID = tbl3_A.ID;
+
+--create index tbl1_idx on tbl1_B(ID, TEXT) parallel 2;
+--alter index tbl1_idx noparallel; 
+--analyze index tbl1_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+--
+--create index tbl3_idx on tbl3_B(ID) parallel 2;
+--alter index tbl3_idx noparallel;
+--analyze index tbl3_idx ESTIMATE STATISTICS SAMPLE 10 PERCENT;
+
+select count(1) from
+tbl3_B,
+tbl2_B,
+tbl1_B
+where
+tbl2_B.TEXT2 = 'PART' and
+tbl3_B.ID < 720000 and tbl3_B.ID > 690000 and
+tbl1_B.TEXT = tbl2_B.TEXT and
+tbl1_B.ID = tbl3_B.ID;
+
+
+/******************************************Partition - LessIO***********************************************************/
+/******************************************Partition - LessIO***********************************************************/
+select count(1) from tbl8_A
+where
+par_id = 9;
+
+select count(1) from tbl8_B
+where
+par_id = 9;
+
+
+
+/******************************************Partition - parallel***********************************************************/
+/******************************************Partition - parallel***********************************************************/
+
+--update tbl8_A set TEXT2 = 'TEST9'
+--where
+--par_id = 9;
+--
+--update tbl8_B set TEXT2 = 'TEST9'
+--where
+--par_id = 9;
+--
+----open another instance and run the commands:
+--update tbl8_A set TEXT2 = 'TEST4'
+--where
+--par_id = 4;
+--
+--update tbl8_B set TEXT2 = 'TEST4'
+--where
+--par_id = 4;
+
+
+

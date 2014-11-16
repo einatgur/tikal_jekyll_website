@@ -1,0 +1,249 @@
+#!/usr/bin/env perl
+
+# PRE-COMMIT HOOK
+#
+# The pre-commit hook is invoked before a Subversion txn is
+# committed.  Subversion runs this hook by invoking a program
+# (script, executable, binary, etc.) named 'pre-commit' (for which
+# this file is a template), with the following ordered arguments:
+#
+#   [1] REPOS-PATH   (the path to this repository)
+#   [2] TXN-NAME     (the name of the txn about to be committed)
+#
+# The default working directory for the invocation is undefined, so
+# the program should set one explicitly if it cares.
+#
+# If the hook program exits with success, the txn is committed; but
+# if it exits with failure (non-zero), the txn is aborted, no commit
+# takes place, and STDERR is returned to the client.   The hook
+# program can use the 'svnlook' utility to help it examine the txn.
+#
+# On a Unix system, the normal procedure is to have 'pre-commit'
+# invoke other programs to do the real work, though it may do the
+# work itself too.
+#
+#   ***  NOTE: THE HOOK PROGRAM MUST NOT MODIFY THE TXN, EXCEPT  ***
+#   ***  FOR REVISION PROPERTIES (like svn:log or svn:author).   ***
+#
+#   This is why we recommend using the read-only 'svnlook' utility.
+#   In the future, Subversion may enforce the rule that pre-commit
+#   hooks should not modify the versioned data in txns, or else come
+#   up with a mechanism to make it safe to do so (by informing the
+#   committing client of the changes).  However, right now neither
+#   mechanism is implemented, so hook writers just have to be careful.
+#
+# Note that 'pre-commit' must be executable by the user(s) who will
+# invoke it (typically the user httpd runs as), and that user must
+# have filesystem-level permission to access the repository.
+#
+# On a Windows system, you should name the hook program
+# 'pre-commit.bat' or 'pre-commit.exe',
+# but the basic idea is the same.
+#
+# The hook program typically does not inherit the environment of
+# its parent process.  For example, a common problem is for the
+# PATH environment variable to not be set to its usual value, so
+# that subprograms fail to launch unless invoked via absolute path.
+# If you're having unexpected problems with a hook program, the
+# culprit may be unusual (or missing) environment variables.
+#
+# Here is an example hook script, for a Unix /bin/sh interpreter.
+# For more examples and pre-written hooks, see those in
+# the Subversion repository at
+# http://svn.collab.net/repos/svn/trunk/tools/hook-scripts/ and
+# http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/
+
+# ====================================================================
+# Based on commit-mime-type-check.pl
+#
+# ====================================================================
+
+# Turn on warnings the best way depending on the Perl version.
+BEGIN {
+	if ( $] >= 5.006_000 ) { require warnings; import warnings; }
+	else                   { $^W = 1; }
+}
+
+use strict;
+use Carp;
+
+######################################################################
+# Configuration section.
+
+# Svnlook path.
+my $svnlook = "/usr/bin/svnlook";
+
+# Min message length
+my $min_message_length = 10;
+
+# Since the path to svnlook depends upon the local installation
+# preferences, check that the required program exists to insure that
+# the administrator has set up the script properly.
+{
+	my $ok = 1;
+	foreach my $program ($svnlook) {
+		if ( -e $program ) {
+			unless ( -x $program ) {
+				warn "$0: required program `$program' is not executable, ",
+				  "edit $0.\n";
+				$ok = 0;
+			}
+		}
+		else {
+			warn "$0: required program `$program' does not exist, edit $0.\n";
+			$ok = 0;
+		}
+	}
+	exit 1 unless $ok;
+}
+
+######################################################################
+# Initial setup/command-line handling.
+
+&usage unless @ARGV == 2;
+
+# Get the input params: REPOS-PATH and TXN-NAME
+my $repos = shift;
+my $txn   = shift;
+
+unless ( -e $repos ) {
+	&usage("$0: repository directory `$repos' does not exist.");
+}
+unless ( -d $repos ) {
+	&usage("$0: repository directory `$repos' is not a directory.");
+}
+
+# Define two constant subroutines to stand for read-only or read-write
+# access to the repository.
+sub ACCESS_READ_ONLY ()  { 'read-only' }
+sub ACCESS_READ_WRITE () { 'read-write' }
+
+######################################################################
+# Harvest data using svnlook.
+
+# Change into /tmp so that svnlook diff can create its .svnlook
+# directory.
+my $tmp_dir = '/tmp';
+chdir($tmp_dir)
+  or die "$0: cannot chdir `$tmp_dir': $!\n";
+
+# Figure out what files have added using svnlook.
+my @files_added;
+foreach
+  my $line ( &read_from_process( $svnlook, 'changed', $repos, '-t', $txn ) )
+{
+
+	# Add only files that were added to @files_added
+	if ( $line =~ /^A.  (.*[^\/])$/ ) {
+		push( @files_added, $1 );
+	}
+}
+
+my @errors;
+foreach my $path (@files_added) {
+	my $needslock;
+
+	# Parse the complete list of property values of the file $path to extract
+	# the needs-lock property
+	foreach my $prop (
+		&read_from_process(
+			$svnlook, 'proplist', $repos, '-t', $txn, '--verbose', $path
+		)
+	  )
+	{
+		if ( $prop =~ /^\s*svn:needs-lock : (\S+)/ ) {
+			$needslock = $1;
+		}
+	}
+
+	# Detect error conditions and add them to @errors
+	if ( not $needslock ) {
+		push @errors, "$path : svn:needs-lock is not set";
+	}
+}
+
+# If there are any errors list the problem files and give information
+# on how to avoid the problem. Hopefully people will set up auto-props
+# and will not see this verbose message more than once.
+if (@errors) {
+	warn "$0:\n", join( "\n", @errors ), "\n\n", <<EOS;
+
+Every file must have the svn:needs-lock property set. 
+To add it automatically, configure your subversion client: copy config file from <path to config file> to <your user home directory>\.subversion
+or contact your Administrator for instructions.
+EOS
+	exit 1;
+} else {
+	# check message length
+	my $message = `$svnlook log -t "$txn" "$repos"`; 
+	if (!$message || (length($message) < $min_message_length)){
+		warn "$0:\n", <<EOS;
+
+Please enter a commit message that details what has changed during this commit, with more than $min_message_length characters
+EOS
+	exit 1;
+	} else {
+		exit 0;
+	}
+	
+}
+
+sub usage {
+	warn "@_\n" if @_;
+	die "usage: $0 REPOS TXN-NAME\n";
+}
+
+sub safe_read_from_pipe {
+	unless (@_) {
+		croak "$0: safe_read_from_pipe passed no arguments.\n";
+	}
+	print "Running @_\n";
+	my $pid = open( SAFE_READ, '-|' );
+	unless ( defined $pid ) {
+		die "$0: cannot fork: $!\n";
+	}
+	unless ($pid) {
+		open( STDERR, ">&STDOUT" )
+		  or die "$0: cannot dup STDOUT: $!\n";
+		exec(@_)
+		  or die "$0: cannot exec `@_': $!\n";
+	}
+	my @output;
+	while (<SAFE_READ>) {
+		chomp;
+		push( @output, $_ );
+	}
+	close(SAFE_READ);
+	my $result = $?;
+	my $exit   = $result >> 8;
+	my $signal = $result & 127;
+	my $cd     = $result & 128 ? "with core dump" : "";
+	if ( $signal or $cd ) {
+		warn "$0: pipe from `@_' failed $cd: exit=$exit signal=$signal\n";
+	}
+	if (wantarray) {
+		return ( $result, @output );
+	}
+	else {
+		return $result;
+	}
+}
+
+sub read_from_process {
+	unless (@_) {
+		croak "$0: read_from_process passed no arguments.\n";
+	}
+	my ( $status, @output ) = &safe_read_from_pipe(@_);
+	if ($status) {
+		if (@output) {
+			die "$0: `@_' failed with this output:\n", join( "\n", @output ),
+			  "\n";
+		}
+		else {
+			die "$0: `@_' failed with no output.\n";
+		}
+	}
+	else {
+		return @output;
+	}
+}

@@ -1,0 +1,60 @@
+
+
+// ********* fig:01 - Complete Tree with All the Nodes ***********
+
+Root ---
+		|    
+		|-- Node1
+		|
+		|-- Node2---
+		|			|    
+		|			|-- Node21
+		|		    |
+		|			|-- Node22
+		|			|    
+		|			|-- Node23
+		|		    |
+		|			|-- Node24
+		|			|    
+		|			|-- Node25    
+		|-- Node3
+		|
+		|-- Node4---
+		|			|    
+		|			|-- Node41
+		|		    |
+		|			|-- Node42
+		|			|    
+		|			|-- Node43
+		|		    |
+		|			|-- Node44---
+		|		    |	   		 |-- Node4---
+		|		    |			 |			 |    
+		|		    |			 |			 |-- Node41
+		|		    |			 |		     |
+		|		    |			 |			 |-- Node42
+		|		    |			 |			 |    
+		|		    |			 |			 |-- Node43
+		|		    |	
+		|			|-- Node45
+		|		    |
+		|			
+		
+
+// *********** fig:02 - Required Tree in Output ***********
+
+Root ---
+		|    
+		|-- Node1
+		|
+		|-- Node2---
+		|			|    
+		|			|-- Node21
+		|		    |
+		|			|-- Node22
+		|			|    
+		|			|-- Node23
+		|		    |
+		|			|-- Node24
+		|			|    
+		|			|-- Node25

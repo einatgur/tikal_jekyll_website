@@ -1,0 +1,61 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Events
+{
+    public class ActionEventArgs<T1> : EventArgs
+    {
+        public T1 Parameter1
+        {
+            get;
+            private set;
+        }
+
+        public ActionEventArgs(T1 param)
+        {
+            Parameter1 = param;
+        }
+    }
+
+    public class ActionEventArgs<T1, T2> : ActionEventArgs<T1>
+    {
+        public T2 Parameter2
+        {
+            get;
+            private set;
+        }
+
+        public ActionEventArgs(T1 param1, T2 param2) : base(param1)
+        {
+            Parameter2 = param2;
+        }
+    }
+
+	public class ActionEventArgs<T1, T2, T3> : ActionEventArgs<T1, T2>
+    {
+        public T3 Parameter3
+        {
+            get;
+            private set;
+        }
+
+        public ActionEventArgs(T1 param1, T2 param2, T3 param3) : base(param1, param2)
+        {
+            Parameter3 = param3;
+        }
+    }
+
+    public class ActionEventArgs<T1, T2, T3, T4> : ActionEventArgs<T1, T2, T3>
+    {
+        public T4 Parameter4
+        {
+            get;
+            private set;
+        }
+
+        public ActionEventArgs(T1 param1, T2 param2, T3 param3, T4 param4) : base(param1, param2, param3)
+        {
+            Parameter4 = param4;
+        }
+    }
+}

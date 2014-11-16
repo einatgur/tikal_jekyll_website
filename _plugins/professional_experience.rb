@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'pry'
+require 'kramdown'
 
 module Jekyll
   class ProfessionalExperience < Liquid::Tag
@@ -16,7 +17,7 @@ module Jekyll
                 #{exp["years"]}
               </div> 
               <div class="field field-name-field-description-experience field-type-text field-label-above">
-                #{exp["description"]}
+                #{Kramdown::Document.new(exp["description"]).to_html}
               </div>
             </div>
           </div>

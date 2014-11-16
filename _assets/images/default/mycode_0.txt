@@ -1,0 +1,118 @@
+// ********* Menu.java *****************
+
+package com.quadgen.user.model;
+
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+
+@Entity
+@Table(name="treenode_tbl")
+@NamedQueries({
+@NamedQuery(name="TreeNode.loadByList", 
+			query="select m from TreeNode m left join fetch m.cNode n where n.id in(:list)"),
+@NamedQuery(name="TreeNode.loadAll", 
+			query="select m from TreeNode m left join fetch m.cNode"),
+
+})
+public class TreeNode implements Serializable {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "NodeId")
+	private int id;
+	
+	@Column(name="Node")
+	private String Node;
+	
+	@Column(name="text")
+	private String text;
+	
+	@OneToMany 
+	@JoinColumn(name = "ParentID") 
+	@OrderColumn
+	private List<TreeNode> cNode = new LinkedList<TreeNode>();
+	
+
+}
+
+
+
+
+
+// **************** Dao **********************
+
+
+public class Dao {
+
+		//fires queries multiple times
+		public Menu loadTree(List list){
+			
+			EntityManager em=getEmf().createEntityManager();
+		em.createNamedQuery("TreeNode.loadByList").setParameter("list", list).getResultList();
+   		return em.find(TreeNode.class, 1);
+			
+		}
+		
+		//working fine 
+		public Menu loadAll(){
+			
+			EntityManager em=getEmf().createEntityManager();
+			em.createNamedQuery("TreeNode.loadAll").getResultList();
+	   		return em.find(Menu.class, 1);
+		}
+
+		
+		
+
+}
+
+
+
+// ************** Queries(log) **********
+
+
+Hibernate: select menu0_.NodeId as NodeId64_0_, cnode1_.NodeId as NodeId64_1_, menu0_.Text as Text64_0_,cnode1_.Text as Text64_1_,cnode1_.ParentID as ParentID0__, cnode1_.NodeId as NodeId0__ from treenode_tbl menu0_ left outer join treenode_tbl cnode1_ on menu0_.NodeId=cnode1_.ParentID where cnode1_.NodeId in (? , ? , ? , ? , ? , ? , ? , ?)
+
+Hibernate: select submenus0_.ParentID as ParentID1_, submenus0_.NodeId as NodeId1_, submenus0_.NodeId as NodeId64_0_,submenus0_.Text as Text64_0_ from treenode_tbl submenus0_ where submenus0_.ParentID=?
+
+Hibernate: select submenus0_.ParentID as ParentID1_, submenus0_.NodeId as NodeId1_, submenus0_.NodeId as NodeId64_0_,submenus0_.Text as Text64_0_ from treenode_tbl submenus0_ where submenus0_.ParentID=?
+
+Hibernate: select submenus0_.ParentID as ParentID1_, submenus0_.NodeId as NodeId1_, submenus0_.NodeId as NodeId64_0_,submenus0_.Text as Text64_0_ from treenode_tbl submenus0_ where submenus0_.ParentID=?
+
+Hibernate: select submenus0_.ParentID as ParentID1_, submenus0_.NodeId as NodeId1_, submenus0_.NodeId as NodeId64_0_,submenus0_.Text as Text64_0_ from treenode_tbl submenus0_ where submenus0_.ParentID=?
+
+Hibernate: select submenus0_.ParentID as ParentID1_, submenus0_.NodeId as NodeId1_, submenus0_.NodeId as NodeId64_0_,submenus0_.Text as Text64_0_ from treenode_tbl submenus0_ where submenus0_.ParentID=?
+
+Hibernate: select submenus0_.ParentID as ParentID1_, submenus0_.NodeId as NodeId1_, submenus0_.NodeId as NodeId64_0_,submenus0_.Text as Text64_0_ from treenode_tbl submenus0_ where submenus0_.ParentID=?
+
+
+// ********* Tree View output ***********
+
+Root ---
+		|    
+		|-- Node1
+		|
+		|-- Node2---
+		|			|    
+		|			|-- Node21
+		|		    |
+		|			|-- Node22
+		|			|    
+		|			|-- Node23
+		|		    |
+		|			|-- Node24
+		|			|    
+		|			|-- Node25
+		|		    |
+		|			
+		
+

@@ -1,0 +1,281 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		
+               <!--[if lt IE 9]><script
+    type="text/javascript" src="getJsResource/resources/custom/components/CCC/svg.js"
+    data-path="getUntypedResource/resources/custom/components/CCC/">
+</script><![endif]--> 
+    <meta name="svg.render.forceflash" content="true"> 
+            
+<script type="text/javascript" src="/pentaho/content/pentaho-cdf/js/scripts.js?version=3f2baa6e739701f94fc1be0d46311c24"></script><link href="/pentaho/content/pentaho-cdf/js/styles.css?version=afe784ea72a0855a90ba39e1b6485150" rel="stylesheet" type="text/css" /><link rel="stylesheet" type="text/css" href="/pentaho/content/pentaho-cdf/js/theme/cupertino/jquery-ui-1.8.custom.css"/>
+<!--[if lte IE 8]><link rel="stylesheet" href="/pentaho/content/pentaho-cdf/js/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->		<script language="javascript" type="text/javascript" src="getJsResource/js/CDF.js?v=0d8613a055df76136575f8b7d5ce0c3f"></script>		<link href='getCssResource/css/CDF-CSS.css?v=4eca4dff5f4a6b822582cff5d04f0c74' rel='stylesheet' type='text/css' />
+<script language="javascript" type="text/javascript">
+  Dashboards.context = {
+  "params": {},
+  "roles": [
+    "Admin",
+    "Authenticated",
+    "ceo"
+  ],
+  "serverLocalDate": 1301493327299,
+  "serverUTCDate": 1301500527299,
+  "user": "joe"
+}
+</script>
+
+	</head>
+	<body>
+	
+		
+  <div class='container'>
+    <div id='Header'  class='clearfix '  style='height:px;' >
+      <div id='5dc54aa4-6a22-269a-d641-ac5fd3a61298'  class='cdfdd-round span-24 last '  style='background-color:#a1d200;height:60px;text-align:center;' >
+        <br><h2 style="color:#606060;">Tikal ALM Suite - Issues Dashboard</h2> 
+        
+      </div>
+    </div>
+    <div id='Spacer'  class='clearfix '  style='height:5px;' >
+    </div>
+    <div id='Body'  class='clearfix '  style='height:px;' >
+      <div id='Filter_Panel'  class='cdfdd-round span-4 append-1 prepend-1 '  style='background-color:#e0e0e0;height:400px;' >
+        <div id='filter1'  class='clearfix '  style='height:px;' >
+        </div>
+        <div id='filter2'  class='clearfix '  style='height:px;' >
+        </div>
+      </div>
+      <div id='Panel_1'  class='cdfdd-round span-18 last '  style='background-color:#e0e0e0;height:400px;' >
+        <div id='line1'  class='clearfix '  style='height:px;' >
+        </div>
+        <div id='b564ee9d-f604-5261-1d03-ee8035ae4b99'  class='clearfix '  style='height:px;' >
+          <div id='bar1'  class='span-9 '  style='height:px;' >
+          </div>
+          <div id='pie1'  class='span-6 last '  style='height:px;' >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id='Small_Space'  class='clearfix '  style='height:5px;' >
+    </div>
+    <div id='Footer'  class='cdfdd-round clearfix '  style='background-color:#e0e0e0;height:80px;text-align:left;' >
+      <div id='desc'  class='span-15 '  style='height:40px;text-align:left;' >
+      </div>
+      <div id='Footer_Image'  class='span-5 append-0 last '  style='height:px;text-align:right;' >
+        <a style="position:relative;top:12;" border="0" title="Tikal Knowledge" href="http://www.tikalk.com">
+<img src="http://www.tikalk.com/files/tikal_marina_logo.png"/>
+</a> 
+        
+      </div>
+    </div>
+  </div>
+<script language="javascript" type="text/javascript">
+wcdfSettings = {
+  "title": "",
+  "author": "",
+  "description": "",
+  "style": "Clean"
+};
+var filter1param = "All Issue Types";
+
+var filter2param = "All Products";
+
+var render_desc = {
+	type: "textComponent",
+	name: "render_desc",
+	expression: function(){return "Showing " + filter1param + " " + filter2param} ,
+	htmlObject: "desc",
+	listeners: ['filter1param','filter2param'],
+	executeAtStart: true
+
+};
+
+var render_line1chart = {
+	type: "cccLineChart",
+	name: "render_line1chart",
+	chartDefinition: {
+		width: 600,
+		height: 200,
+		dataAccessId: "line1ds",
+path: "/Fuse/Dash5.cda",
+		crosstabMode: true,
+		seriesInRows: false,
+		animate: false,
+		clickable: false,
+		timeSeries: false,
+		timeSeriesFormat: "%Y-%m-%d",
+		orientation: "vertical",
+		colors: [],
+		showValues: false,
+		showDots: true,
+		valuesAnchor: "right",
+		title: "Open vs Closed/Resolved",
+		titlePosition: "top",
+		titleSize: 25,
+		legend: true,
+		legendPosition: "bottom",
+		legendAlign: "center",
+		showXScale: true,
+		xAxisPosition: "bottom",
+		xAxisSize: 30,
+		showYScale: true,
+		yAxisPosition: "left",
+		yAxisSize: 50,
+		xAxisFullGrid: false,
+		yAxisFullGrid: false,
+		axisOffset: 0,
+		originIsZero: true,
+		extensionPoints: []
+	},
+	parameters: [["filter2param","filter2param"]],
+	executeAtStart: true,
+	htmlObject: "line1",
+	listeners: ['filter1param','filter2param']
+
+};
+
+var render_bar1chart = {
+	type: "cccBarChart",
+	name: "render_bar1chart",
+	chartDefinition: {
+		width: 400,
+		height: 200,
+		dataAccessId: "bar1ds",
+path: "/Fuse/Dash5.cda",
+		crosstabMode: false,
+		seriesInRows: false,
+		animate: true,
+		clickable: false,
+		timeSeries: false,
+		timeSeriesFormat: "%Y-%m-%d",
+		stacked: false,
+		maxBarSize: 100,
+		panelSizeRatio: 0.8,
+		banelSizeRatio: 0.9,
+		orientation: "horizontal",
+		colors: [],
+		showValues: false,
+		valuesAnchor: "right",
+		titlePosition: "top",
+		titleSize: 25,
+		legend: true,
+		legendPosition: "bottom",
+		legendAlign: "center",
+		showXScale: true,
+		xAxisPosition: "bottom",
+		xAxisSize: 30,
+		showYScale: true,
+		yAxisPosition: "left",
+		yAxisSize: 100,
+		xAxisFullGrid: false,
+		yAxisFullGrid: false,
+		axisOffset: 0,
+		originIsZero: true,
+		extensionPoints: [["yAxisLabel_textAlign","right"]]
+	},
+	parameters: [["filter2param","filter2param"]],
+	executeAtStart: true,
+	htmlObject: "bar1",
+	listeners: ['filter1param','filter2param']
+
+};
+
+var render_pie1chart = {
+	type: "cccPieChart",
+	name: "render_pie1chart",
+	chartDefinition: {
+		width: 400,
+		height: 200,
+		dataAccessId: "pie1ds",
+path: "/Fuse/Dash5.cda",
+		crosstabMode: false,
+		seriesInRows: false,
+		animate: true,
+		clickable: false,
+		timeSeries: false,
+		timeSeriesFormat: "%Y-%m-%d",
+		innerGap: 0.9,
+		explodedSliceIndex: 0,
+		explodedSliceRadius: 0,
+		orientation: "vertical",
+		colors: [],
+		showValues: false,
+		valuesAnchor: "right",
+		titlePosition: "top",
+		titleSize: 25,
+		legend: true,
+		legendPosition: "bottom",
+		legendAlign: "center",
+		showXScale: true,
+		xAxisPosition: "bottom",
+		xAxisSize: 30,
+		showYScale: true,
+		yAxisPosition: "left",
+		yAxisSize: 50,
+		xAxisFullGrid: false,
+		yAxisFullGrid: false,
+		axisOffset: 0,
+		originIsZero: true,
+		extensionPoints: []
+	},
+	parameters: [["filter2param","filter2param"]],
+	executeAtStart: true,
+	htmlObject: "pie1",
+	listeners: ['filter1param','filter2param']
+
+};
+
+var render_filter1select = {
+	type: "Select",
+	name: "render_filter1select",
+	parameter: "filter1param",
+	htmlObject: "filter1",
+	listeners: [],
+	parameters: [],
+	queryDefinition: {
+		dataAccessId: "filter1ds",
+path: "/Fuse/Dash5.cda"
+	},
+	valuesArray: [],
+	valueAsId: true,
+	executeAtStart: true
+
+};
+
+var render_filter2select = {
+	type: "Select",
+	name: "render_filter2select",
+	parameter: "filter2param",
+	htmlObject: "filter2",
+	listeners: [],
+	parameters: [],
+	queryDefinition: {
+		dataAccessId: "filter2ds",
+path: "/Fuse/Dash5.cda"
+	},
+	valuesArray: [],
+	valueAsId: true,
+	executeAtStart: true
+
+};
+
+Dashboards.init([render_desc,render_line1chart,render_bar1chart,render_pie1chart,render_filter1select,render_filter2select]);
+</script>
+
+		
+				<script type="text/javascript">
+		<!-- Layout formats -->
+		$( function(){
+				//$(".round").corner();
+				$(".cdfdd-round").corner();
+				$(".cdfdd-bevel").corner("bevel");
+				$(".cdfdd-notch").corner("notch");
+				$(".cdfdd-bite").corner("bite");
+				$(".cdfdd-bevel_top").corner("bevel top");
+				$(".cdfdd-dog_tr").corner("dog tr");
+			} ) ;
+		</script>
+		
+
+	</body>
+</html>
+
+

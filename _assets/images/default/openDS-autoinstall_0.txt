@@ -1,0 +1,126 @@
+#!/bin/bash
+
+# check for sudo run
+if [ `whoami` != root ]; then
+    echo Please run this script as root or using sudo
+    exit
+fi
+
+
+DIR1="/u02/OpenDS-2.2.1"
+
+
+## Ask questions:
+printf "Please provide password for admin user: \n"
+read bindpasswd
+printf "Please provide ip address for ldap server: \n"
+read ip
+printf "Please provide domain name, for example: domain.com. \n"
+read danswer
+
+dpreffix=$(echo $danswer | awk -F"." '{ print $1}')
+dsuffix=$(echo $danswer | awk -F"." '{print $2}')
+
+## Creating OpenDS installation script
+printf "Building installation script \n \n"
+
+printf "
+#\!/bin/bash
+
+# some parameters
+opends=\"$DIR1\"
+binddn=\"cn=admin\"
+bindpasswd=\"$bindpasswd\"
+ip=\'$ip\'
+management_port=\'4444\'
+
+# some env stuff
+unset DISPLAY
+export OPENDS_JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre 
+
+# the actual installation
+#\$opends/setup --cli --baseDN \"dc=testdomain,dc=com\" --addBaseEntry --rootUserDN \"\$binddn\" --rootUserPassword \"\$bindpasswd\" --ldapPort 1389 --adminConnectorPort \"\$management_port\" -n -Q
+\$opends/setup --cli --baseDN \"dc=$dpreffix,dc=$dsuffix\" --addBaseEntry --rootUserDN \"\$binddn\" --rootUserPassword \"\$bindpasswd\" --ldapPort 1389 --adminConnectorPort \"\$management_port\" -n -Q
+
+# set some required attributes for OpenAM
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n --advanced set-global-configuration-prop --set single-structural-objectclass-behavior:accept
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n --advanced set-backend-prop --backend-name userRoot --set db-cache-percent:50
+
+# tweak for performance
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n --advanced set-connection-handler-prop --handler-name \"LDAP Connection Handler\" --set num-request-handlers:8
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n --advanced set-connection-handler-prop --handler-name \"LDAP Connection Handler\" --set enabled:false
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n --advanced set-connection-handler-prop --handler-name \"LDAP Connection Handler\" --set enabled:true
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n set-entry-cache-prop --cache-name FIFO --set enabled:true
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n set-entry-cache-prop --cache-name \"Soft Reference\" --set enabled:true
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n set-log-publisher-prop --publisher-name \"Replication Repair Logger\" --set enabled:false
+\$opends/bin/dsconfig -h \"\$ip\" -p \"\$management_port\" -D \"\$binddn\" -w \"\$bindpasswd\" -X -n set-log-publisher-prop --publisher-name \"File-Based Access Logger\" --set enabled:false
+
+# AHA-specific schema
+/usr/bin/ldapmodify -x -D \$binddn -w \$bindpasswd -h \"\$ip\" -p 1389 -f $DIR1/./initialize-$dsuffix.ldif
+\n" >>/u02/OpenDS-2.2.1/openDS-install.sh
+chmod +x /u02/OpenDS-2.2.1/openDS-install.sh
+
+## Creating custom schema file initialize-<domain>.ldif file
+
+printf "Creating custom schema file. \n"
+printf "
+dn: cn=Default Password Policy,cn=Password Policies,cn=config
+changetype: modify
+replace: ds-cfg-allow-pre-encoded-passwords
+ds-cfg-allow-pre-encoded-passwords: true
+
+dn: cn=Root Password Policy,cn=Password Policies,cn=config
+changetype: modify
+replace: ds-cfg-allow-pre-encoded-passwords
+ds-cfg-allow-pre-encoded-passwords: true
+
+dn: cn=schema
+changetype: modify
+add: attributeTypes
+attributeTypes: ( 1.3.6.1.4.1.26037.1.999.1000
+  NAME ( 'avectraId' )
+  DESC 'TESTDOMAIN customer ID'
+  EQUALITY caseExactIA5Match
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE
+  X-ORIGIN 'Virtual Box Ground'
+  USAGE userApplications )
+-
+add: attributeTypes
+attributeTypes: ( 1.3.6.1.4.1.26037.1.999.1001
+  NAME ( 'TESTDOMAINpw' )
+  DESC 'Encrypted TESTDOMAIN Password'
+  EQUALITY caseExactIA5Match
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE
+  X-ORIGIN 'Virtual Box Ground'
+  USAGE userApplications )
+-
+add: objectClasses
+objectClasses: ( 1.3.6.1.4.1.26037.1.999.2000
+  NAME ( 'testdomainuser' )
+  DESC 'Virtual Box Ground Portal user'
+  SUP inetOrgPerson
+  MAY ( avectraId $ TESTDOMAINpw )
+  X-ORIGIN 'Virtual Box Ground' )
+" >>/u02/OpenDS-2.2.1/initialize-$dsuffix.ldif
+
+chown -R ldap.ldap $DIR1/*
+
+printf " \n \n \n \n
+Executing installation script as ldap user. \n"
+
+cd $DIR1
+sudo -u ldap -i "$DIR1/./openDS-install.sh"
+
+
+# checking post installation:
+netstat -ln | grep :1389
+
+netstat -ln | grep :4444
+
+ps auxww | grep ldap
+
+
+ldapsearch -x -h localhost -p 1389 -D cn=admin -w ***** -b dc=testdomain,dc=com "objectclass=*"
+

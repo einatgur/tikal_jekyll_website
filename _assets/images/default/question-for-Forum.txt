@@ -1,0 +1,138 @@
+Hello, all
+
+I've been trying to install openSSO v _9.5.2_RC1 using a response file with openDS(ldap) backend and have a problem for which I can't seem to find a real answer, so any tip would be helpful. I'm running CentOS release 6.3 in a virtualbox with 1,5 GB of RAM. I was able to install openDS and start it but I'm not sure if its configured correctly. I'm attaching a script that I used for auto installation. (openDS-autoinstall.txt)
+
+If I ask lsof here is what I get:
+[CODE]$ lsof -i -n -P | grep 4444
+java      6658    ldap   75u  IPv6  37916      0t0  TCP *:4444 (LISTEN) -- which is ok, right :)[/CODE]
+
+If I ask ps about openDS here is what I get:
+[CODE]$ psg opends
+ 6658 pts/3    Sl     2:47 /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/bin/java -server -
+
+Dorg.opends.server.scriptName=start-ds org.opends.server.core.DirectoryServer --configClass 
+
+org.opends.server.extensions.ConfigFileHandler --configFile /u02/OpenDS-2.2.1/config/config.ldif[/CODE]
+
+Here are couple of more information that might help:
+
+][CODE]$ showmemusage
+ 6764 /usr/sbin/httpd
+ 7208 /usr/sbin/httpd
+ 7372 /usr/sbin/httpd
+ 9856 /usr/sbin/httpd
+12028 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --log-
+
+error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/lib/mysql/mysql.sock
+12580 /usr/sbin/named-sdb -u named -t /var/named/chroot
+36920 /usr/bin/ruby /usr/sbin/puppetmasterd
+131508 /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/bin/java -server -Dorg.opends.server.scriptName=start-
+
+ds org.opends.server.core.DirectoryServer --configClass org.opends.server.extensions.ConfigFileH
+283748 /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0/jre/bin/java -
+
+Djava.util.logging.config.file=/u02/tomcat/conf/logging.properties -server -Xms512m -Xmx512m -
+
+XX:MaxPermSize=256m -Djvm=tomcat_virtualbox -D
+
+$ free -m
+             total       used       free     shared    buffers     cached
+Mem:          1478       1277        201          0         73        634
+-/+ buffers/cache:        568        910
+Swap:         2015          0       2015[/CODE]
+
+
+The problem is that if I try to use this command as tomcat user it will give only one error message:
+
+
+[CODE][tomcat@cent01 work]$ java -jar ~/work/opensso/tools/configurator.jar -f /home/tomcat/work/test.testdomain.example.config
+Configuration failed!
+[tomcat@cent01 work]$[/CODE]
+ - which is very helpful :(( I'm attaching this file as well. (test.testdomain.example.config.txt)
+
+Here is the output from the tomcat log:
+
+
+[CODE]Nov 2, 2012 1:33:42 PM org.apache.catalina.core.StandardWrapperValve invoke
+SEVERE: Servlet.service() for servlet [AMSetupServlet] in context with path [/opensso] threw exception 
+
+[AMSetupFilter.doFilter] with root cause
+com.sun.identity.setup.ConfiguratorException: Cannot connect to Directory Server.
+        at com.sun.identity.setup.ServicesDefaultValues.setServiceConfigValues
+
+(ServicesDefaultValues.java:141)
+        at com.sun.identity.setup.AMSetupServlet.processRequest(AMSetupServlet.java:438)
+        at com.sun.identity.setup.AMSetupServlet.doPost(AMSetupServlet.java:398)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:641)
+        at javax.servlet.http.HttpServlet.service(HttpServlet.java:722)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter
+
+(ApplicationFilterChain.java:305)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+        at com.sun.identity.setup.AMSetupFilter.doFilter(AMSetupFilter.java:99)
+        at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter
+
+(ApplicationFilterChain.java:243)
+        at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210)
+        at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:225)
+        at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123)
+        at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:472)
+        at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:168)
+        at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:98)
+        at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:927)
+        at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118)
+        at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:407)
+        at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1001)
+        at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:585)
+        at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+        at java.lang.Thread.run(Thread.java:679)[/CODE]
+
+
+If I try to use status command then here is what I get:
+
+[CODE][user1@cent01 openDS]$ sudo service opends status
+
+
+>>>> Specify OpenDS LDAP connection parameters
+
+Administrator user bind DN [cn=Directory Manager]:
+
+Password for user 'cn=Directory Manager':
+Unable to connect to the server at "host1.testdomain1.com" on port 4444
+
+          --- Server Status ---
+Server Run Status:        Started
+Open Connections:         0
+
+          --- Server Details ---
+Host Name:                host1.testdomain1.com
+Administrative Users:     cn=admin
+Installation Path:        /u02/OpenDS-2.2.1
+Version:                  OpenDS Directory Server 2.2.1
+Java Version:             <not available> (*)
+Administration Connector: Port 4444 (LDAPS)
+
+          --- Connection Handlers ---
+Address:Port : Protocol : State
+-------------:----------:---------
+--           : LDIF     : Disabled
+0.0.0.0:161  : SNMP     : Disabled
+0.0.0.0:636  : LDAPS    : Disabled
+0.0.0.0:1389 : LDAP     : Enabled
+0.0.0.0:1689 : JMX      : Disabled
+
+          --- Data Sources ---
+Base DN:     dc=testdomain,dc=com
+Backend ID:  userRoot
+Entries:     <not available> (*)
+Replication: Disabled
+
+* Information only available if you provide valid authentication information
+when launching the status command.
+[/CODE]
+
+The best thing is that if I go through web wizard and follow that web-wizard it will work without any problems but I don't want to do it in that way. I would like to have automated with a script from a command line :)
+
+Thanks for any kind of tip or direction !!!

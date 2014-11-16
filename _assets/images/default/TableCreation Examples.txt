@@ -1,0 +1,516 @@
+drop sequence my_seq1;
+drop sequence my_seq2;
+drop sequence my_seq3;
+drop sequence my_seq4;
+drop sequence my_seq5;
+drop sequence my_seq6;
+drop table tbl;
+drop table tbl1_A;
+drop table tbl2_A;
+drop table tbl3_A;
+drop table tbl4_A;
+drop table tbl5_A;
+drop table tbl6_A;
+drop table tbl7_A;
+drop table tbl8_A;
+drop table tbl9_A;
+drop table tbl10_A;
+drop table tbl11_A;
+drop table tbl12_A;
+drop table tbl1_B;
+drop table tbl2_B;
+drop table tbl3_B;
+drop table tbl4_B;
+drop table tbl5_B;
+drop table tbl6_B;
+drop table tbl7_B;
+drop table tbl8_B;
+drop table tbl9_B;
+drop table tbl10_B;
+drop table tbl11_B;
+drop table tbl12_B;
+
+CREATE SEQUENCE my_seq1 
+MINVALUE 1 
+MAXVALUE 999999999999999999999999999 
+INCREMENT BY 1 
+START WITH 1 
+CACHE 1000 
+NOORDER  
+NOCYCLE ;
+
+CREATE SEQUENCE my_seq2 
+MINVALUE 1 
+MAXVALUE 999999999999999999999999999 
+INCREMENT BY 1 
+START WITH 1 
+CACHE 1000 
+NOORDER  
+NOCYCLE ;
+
+CREATE SEQUENCE my_seq3 
+MINVALUE 1 
+MAXVALUE 999999999999999999999999999 
+INCREMENT BY 1 
+START WITH 1 
+CACHE 1000 
+NOORDER  
+NOCYCLE ;
+
+CREATE SEQUENCE my_seq4 
+MINVALUE 1 
+MAXVALUE 999999999999999999999999999 
+INCREMENT BY 1 
+START WITH 1 
+CACHE 1000 
+NOORDER  
+NOCYCLE ;
+
+CREATE SEQUENCE my_seq5 
+MINVALUE 1 
+MAXVALUE 999999999999999999999999999 
+INCREMENT BY 1 
+START WITH 1 
+CACHE 1000 
+NOORDER  
+NOCYCLE ;
+
+CREATE SEQUENCE my_seq6
+MINVALUE 1 
+MAXVALUE 999999999999999999999999999 
+INCREMENT BY 1 
+START WITH 1 
+CACHE 1000 
+NOORDER  
+NOCYCLE ;
+
+create table tbl as 
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from (select * from dual);
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from (select * from dual);
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl;
+
+create table tbl11_A as
+select * from tbl;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl;
+
+create table tbl1_A as
+select * from tbl;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl1_A;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl1_A;
+
+insert into tbl
+select
+my_seq2.NEXTVAL*-1 as ID, 
+decode( sign( my_seq2.NEXTVAL*-1 ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq2.NEXTVAL*-1 ) ), +1, to_char( to_date( abs( my_seq2.NEXTVAL*-1 ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq2.NEXTVAL*-1,500), 0, 'FULL','PART') as text2
+from tbl1_A;
+
+insert into tbl
+select
+my_seq1.NEXTVAL as ID, 
+decode( sign( my_seq1.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq1.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq1.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq1.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl1_A;
+
+drop table tbl1_A;
+
+
+/*********************************tbl1_A**************************************/
+Create table tbl1_A 
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+/*********************************tbl12_A**************************************/
+Create table tbl12_A 
+as 
+select tbl1_A.ID,tbl1_A.text,tbl1_A.TEXT2, dbms_random.value(1,1000) as num from tbl1_A order by dbms_random.random;
+
+insert into tbl12_A
+select * from tbl12_A;
+
+Create table tbl12_B as
+select * from tbl12_A;
+
+create index tbl12_idx on tbl12_B(ID) parallel 2;
+alter index tbl12_idx noparallel; 
+analyze index tbl12_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+
+
+/*********************************tbl2_A**************************************/
+Create table tbl2_A 
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+
+/*********************************tbl3_A**************************************/
+Create table tbl3_A 
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+
+/*********************************tbl4_A**************************************/
+Create table tbl4_A 
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+/*********************************tbl9_A**************************************/
+Create table tbl9_A 
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+
+/*********************************tbl5_A**************************************/
+drop table tbl;
+
+create table tbl as
+select 
+mod(my_seq3.NEXTVAL,73) as ID,
+mod(my_seq3.NEXTVAL,29) as my_number,
+decode(mod(my_seq1.NEXTVAL,13), 0, 'FULL','PART') as text
+from tbl1_A;
+
+Create table tbl5_A 
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+
+
+
+/*********************************tbl6_A**************************************/
+drop table tbl;
+
+create table tbl as
+select
+my_seq4.NEXTVAL as ID, 
+decode( sign( my_seq4.NEXTVAL ), -1, 'Negative ', 0, 'Zero', NULL ) ||
+decode( sign( abs( my_seq4.NEXTVAL ) ), +1, to_char( to_date( abs( my_seq4.NEXTVAL ),'J'),'Jsp') ) as text, 
+decode(mod(my_seq4.NEXTVAL,500), 0, 'FULL','PART') as text2
+from tbl1_A where rownum < 100;
+
+Create table tbl6_A
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+
+
+
+/*********************************tbl7_A**************************************/
+drop table tbl;
+
+create table tbl as
+select
+my_seq5.NEXTVAL as ID,
+decode(mod(my_seq5.NEXTVAL,13), 0, 'MOUSE',1,'DOG',2,'CAT',3,'COW',4,'BIRD',5,'CAMEL',6,'ZEBRA',7,'FISH','FLY') as GENDER
+from tbl1_A;
+
+Create table tbl7_A
+as 
+select /*+ append */ * from tbl order by dbms_random.random;
+
+
+
+
+/*********************************tbl8_A**************************************/
+
+create table tbl8_B (
+      ID NUMBER, 
+      TEXT VARCHAR2(87), 
+      TEXT2 VARCHAR2(10),
+      par_id number)
+PARTITION BY RANGE (par_id)
+(PARTITION par_min VALUES LESS THAN (1),
+PARTITION par1 VALUES LESS THAN (2),
+PARTITION par2 VALUES LESS THAN (3),
+PARTITION par3 VALUES LESS THAN (4),
+PARTITION par4 VALUES LESS THAN (5),
+PARTITION par5 VALUES LESS THAN (6),
+PARTITION par6 VALUES LESS THAN (7),
+PARTITION par7 VALUES LESS THAN (8),
+PARTITION par8 VALUES LESS THAN (9),
+PARTITION par9 VALUES LESS THAN (10),
+PARTITION par_max VALUES LESS THAN (10000000000));
+
+commit;
+
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,1 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,2 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,3 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,4 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,5 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,6 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,7 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,8 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,9 from tbl1_A order by dbms_random.random;
+commit;
+insert into tbl8_B 
+select /*+ append */ tbl1_A.*,10 from tbl1_A order by dbms_random.random;
+
+create table tbl8_A as
+select * from tbl8_B;
+
+
+/********************************TABLES_B*************************************/
+Create table tbl1_B 
+as 
+select /*+ append */ * from tbl1_A;
+
+Create table tbl2_B 
+as 
+select /*+ append */ * from tbl2_A;
+
+Create table tbl3_B 
+as 
+select /*+ append */ * from tbl3_A;
+
+Create table tbl4_B 
+as 
+select /*+ append */ * from tbl4_A;
+
+Create table tbl5_B 
+as 
+select /*+ append */ * from tbl5_A;
+
+Create table tbl6_B 
+as 
+select /*+ append */ * from tbl6_A;
+
+Create table tbl7_B 
+as 
+select /*+ append */ * from tbl7_A;
+
+Create table tbl9_B 
+as 
+select /*+ append */ * from tbl7_A;
+
+
+
+
+/********************************INDEXES*************************************/
+create unique index tbl4_idx on tbl4_B(ID) parallel 2;
+alter index tbl4_idx noparallel; 
+analyze index tbl4_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create index tbl4_md_idx on tbl4_B(mod(ID,946)) parallel 2;
+alter index tbl4_md_idx noparallel;
+analyze index tbl4_md_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create bitmap index tbl7_idx on tbl7_B(gender) parallel 2;
+alter index tbl7_idx noparallel;
+analyze index tbl7_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create index tbl5_idx on tbl5_B(id,my_number,text) parallel 2;
+alter index tbl5_idx noparallel;
+analyze index tbl5_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create unique index tbl9_idx on tbl9_B(ID,TEXT) parallel 2;
+alter index tbl9_idx noparallel;
+analyze index tbl9_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create unique index tbl3_idx on tbl3_B(ID) parallel 2;
+alter index tbl3_idx noparallel;
+analyze index tbl3_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create unique index tbl1_idx on tbl1_B(ID, TEXT) parallel 2;
+alter index tbl1_idx noparallel; 
+analyze index tbl1_idx ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+create unique index tbl8_IDX on tbl8_B(ID) parallel 2 LOCAL;
+alter index tbl8_IDX noparallel; 
+analyze index tbl8_IDX ESTIMATE STATISTICS SAMPLE 100 PERCENT;
+
+
+
+
+
+
+
+
+
