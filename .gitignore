@@ -1,7 +1,7 @@
 _site
 .rvmrc
 .sass-cache
-.ruby-version
+.vagrant/
 .idea/
 dump.rdb
 tikal_jekyll_website.iml
