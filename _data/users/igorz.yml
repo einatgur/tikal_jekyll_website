@@ -3,7 +3,7 @@ id: 69
 login: igorz
 first_name: Igor
 last_name: Zalmanovich
-description: .NET Architect
+description: Android/.Net Architect
 about: Over 7 years of experience in the software industry, has vast experience in
   designing  complex IT systems, creating infrastructures, algorithms, frameworks
   and more.
@@ -20,3 +20,4 @@ skills:
     SQL: '7'
     NHibernate: '7'
     WinForms: '7'
+
