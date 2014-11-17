@@ -1,0 +1,30 @@
+{
+  "name": "Site Editor",
+  "version": "1.0.0",
+  "description": "HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.",
+  "main": "src/index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "window": {
+    "title": "Mincraft Maps",
+    "icon": "src/img/icon.jpeg",
+    "toolbar": false,
+    "frame": true,
+    "min_width": 720,
+    "min_height": 450,
+    "resizable": true,
+    "show": true,
+    "position": "center"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "rimraf": "^2.2.8",
+    "unzip": "^0.1.11"
+  }
+}
