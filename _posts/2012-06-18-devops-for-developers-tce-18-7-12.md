@@ -46,5 +46,5 @@ tags:
 <p><span style="font-family: Verdana; ">event is F.O.C</span></p>
 <p><span style="font-family: Verdana; "><br type="_moz" />
 </span></p>
-<p><a href="http://www.meetup.com/Tikal-TCE/events/67814012/"><img src="{{ asset_path upload/1/Screen%20shot%202012-05-07%20at%201.44.55%20PM.png }} border="0" alt="" /></a></p>
+<p><a href="http://www.meetup.com/Tikal-TCE/events/67814012/"><img src="{% asset_path default/upload/1/Screen-shot-2012-05-07-at-1.44.55-PM.png %}" border="0" alt="" /></a></p>
 <p>&nbsp;</p>

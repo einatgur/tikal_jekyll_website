@@ -14,7 +14,7 @@ tags:
 <div>
 	&nbsp;</div>
 <div>
-	<a href="http://www.meetup.com/Tikal-TCE/events/120122872/"><img alt="" src="{{ asset_path RSVP_meetup.png }} style="height: 100px; width: 400px;" /></a></div>
+	<a href="http://www.meetup.com/Tikal-TCE/events/120122872/"><img alt="" src="{% asset_path default/RSVP_meetup.png %}" style="height: 100px; width: 400px;" /></a></div>
 <div>
 	&nbsp;</div>
 <div>

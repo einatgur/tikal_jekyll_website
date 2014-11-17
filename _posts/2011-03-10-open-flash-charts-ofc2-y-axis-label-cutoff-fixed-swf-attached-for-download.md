@@ -14,7 +14,7 @@ tags:
 ---
 <p>Recently we have developed a dashboard using <a href="http://wiki.pentaho.com/display/COM/Community+Dashboard+Framework">CDF</a> and <a href="http://teethgrinder.co.uk/open-flash-chart-2/">OFC2</a> and came across a bug with y-axis labels cutoff.</p>
 <!--break-->
-<p class="rtecenter"><img width="284" height="158" border="1" alt="" src="/files/Screen shot 2011-03-10 at 11_23_12 AM.png" /></p>
+<p class="rtecenter"><img width="284" height="158" border="1" alt="" src="{% asset_path default/Screen-shot-2011-03-10-at-11_23_12-AM.png %}"/></p>
 <p>&nbsp;</p>
 <p>The bug was described here <a href="http://forums.openflashchart.com/viewtopic.php?f=14&amp;t=1596">Y axis numbers are cut off above 1Mil</a></p>
 <p>and solved here <a href="http://jasonrowe.com/2009/07/09/actionscript-data-loading/">Out of sync ActionScript Data&nbsp;Loading</a></p>

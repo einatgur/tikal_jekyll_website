@@ -18,7 +18,7 @@ tags:
 <!--break-->
 <p>&nbsp;</p>
 <p style="margin-bottom: 0in;">Here is what we are going to build:</p>
-<p style="margin-bottom: 0in;"><img height="348" width="600" src="/files/Screen shot 2011-03-25 at 11_19_33 PM.png" alt="" /></p>
+<p style="margin-bottom: 0in;"><img height="348" width="600" src="{% asset_path default/Screen-shot-2011-03-25-at-11_19_33-PM.png %}" alt="" /></p>
 <p style="margin-bottom: 0in;">&nbsp;</p>
 <p style="margin-bottom: 0in;">The data for the dashboard is coming from Bugzilla on Tikal ALM suite testing environment using <a href="../../../../../../java/software-quality-%E2%80%93-os-bi-bugzilla-%E2%80%93-now-pentaho-30">SQR</a>.</p>
 <p style="margin-bottom: 0in;">&nbsp;</p>

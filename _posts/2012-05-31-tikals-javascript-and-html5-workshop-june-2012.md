@@ -51,7 +51,7 @@ tags:
     <li>Comprehensive project</li>
 </ul>
 <p>&nbsp;</p>
-<p><a href="http://www.meetup.com/Tikal-TCE/events/54485882/"><img border="0" alt="" src="{{ asset_path upload/1/Screen%20shot%202012-05-31%20at%2010.54.48%20AM.png }} /></a></p>
+<p><a href="http://www.meetup.com/Tikal-TCE/events/54485882/"><img border="0" alt="" src="{% asset_path default/upload/1/Screen-shot-2012-05-31-at-10.54.48-AM.png %}" "/></a></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

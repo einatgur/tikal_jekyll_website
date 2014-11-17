@@ -14,7 +14,7 @@ tags:
 <p>&nbsp;</p>
 <!--break-->
 <p>&nbsp;</p>
-<p><img width="641" height="312" alt="" src="/files/Screen shot 2011-04-26 at 5_15_17 PM.png" /></p>
+<p><img width="641" height="312" alt="" src="{% asset_path default/Screen-shot-2011-04-26-at-5_15_17-PM.png %}" /></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>Installation takes less than 10 minutes:</p>

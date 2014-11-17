@@ -12,7 +12,7 @@ tags:
 	<tbody>
 		<tr>
 			<td style="width: 105px;">
-			<p><img alt="" src="{{ asset_path fullstack-logo.png }}" style="line-height: 1.6em; width: 80px; height: 80px;" /></p>
+			<p><img alt="" src="{% asset_path default/fullstack-logo.png %}" style="line-height: 1.6em; width: 80px; height: 80px;" /></p>
 			</td>
 			<td colspan="2">
 			<h1>Mind The Stack</h1>
@@ -21,7 +21,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3"><img alt="" src="{{ asset_path fs-event2.png }}" style="height: 237px; width: 600px;" /></td>
+			<td colspan="3"><img alt="" src="{% asset_path default/fs-event2.png %}" style="height: 237px; width: 600px;" /></td>
 		</tr>
 		<tr>
 			<td colspan="3">
@@ -36,7 +36,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="{{ asset_path assaf_g.png }} style="width: 100px; height: 100px; float: left;" /></td>
+			<td><img alt="" src="{% asset_path default/assaf_g.png %}" style="width: 100px; height: 100px; float: left;" /></td>
 			<td colspan="2">
 			<p>At Tabtale we are setting up an entire server side for the all the publishing services. These services include dynamic game configurations, error collection, analytics, social services and more.Tabtale is among the world&rsquo;s top app publishers with millions of downloads so we are putting a great deal of effort in creating an extremely highly scalable and fault tolerant architecture.&nbsp;In this talk I will go over the architecture decisions taken to support the scalability and diversity that is required from the server side services while keeping the management of this infrastructure sane.&nbsp;<br />
 			30min&nbsp;By: Assaf Gannon</p>
@@ -52,7 +52,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="{{ asset_path dork.png }}" style="width: 100px; height: 100px;" /></td>
+			<td><img alt="" src="{% asset_path default/dork.png %}" style="width: 100px; height: 100px;" /></td>
 			<td colspan="2">
 			<p>A year ago we started a big change in&nbsp;FTBpro. We completely changed the visual design, moved to a single page architecture and started exploring new ways to minimise load on our servers - both when serving our actual website, and mobile API responses.We&#39;ll focus on how scaling considerations are now an integral part of our architecture, which enabled us to serve 20x more traffic than we did 1 year ago, with the same setup and with no additional costs.&nbsp;<br />
 			45min&nbsp;By: Dor Kalev &nbsp;(<a href="https://speakerdeck.com/dorkalev/growing-x20-without-spending-an-extra-penny-on-hosting">View the slides</a>)</p>
@@ -69,7 +69,7 @@ tags:
 		</tr>
 		<tr>
 			<td>
-			<p><img alt="" src="{{ asset_path tals.png }} style="width: 100px; height: 100px;" /></p>
+			<p><img alt="" src="{% asset_path default/tals.png %}" style="width: 100px; height: 100px;" /></p>
 
 			<p>&nbsp;</p>
 

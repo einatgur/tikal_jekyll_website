@@ -10,7 +10,7 @@ tags:
 ---
 <p>&nbsp;</p>
 <p>&quot;Rails on scale&quot; is an event focused on giving you ideas and tools to use on your real life rails application. The presentations will go in depth, into the language ,the framework, the tools and methods we used when building large scaled apps for customers. Even if you have an app that you don&#39;t call &quot;big scale&quot;,this event will be very interesting to you since the depth of the lectures will be such that any rails/ruby developer will enjoy.&nbsp;</p>
-<p><strong style="font-family: Verdana; font-size: x-large;"><a href="http://meetup.tikalk.com/events/97046132/"><img alt="" src="{{ asset_path upload/1/meetup_0.png }} /></a></strong></p>
+<p><strong style="font-family: Verdana; font-size: x-large;"><a href="http://meetup.tikalk.com/events/97046132/"><img alt="" src="{% asset_path default/upload/1/meetup_0.png %}" /></a></strong></p>
 <p><span style="color: rgb(255, 102, 0);"><span style="font-size: large;"><span style="font-family: Verdana;">AGENDA :</span></span></span></p>
 <p><span style="font-family: Verdana;"><span style="font-size: large;">08:30-09:30 Registration and Networking</span></span></p>
 <p><span style="font-family: Verdana;"><span style="font-size: large;">09:30-10:30 </span></span></p>

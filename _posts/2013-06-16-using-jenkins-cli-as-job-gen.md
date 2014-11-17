@@ -52,7 +52,7 @@ execJenkinsCli get-job ${tmpl_job_name}  | \
 		Create a template job [preferably keep it disabled so if it has SCM triggers it doesn&#39;t start on any scm change ...] - see <a href="https://gist.github.com/hagzag/62b48fee2e28a9cf32c7">this gist</a></li>
 	<li>
 		Create a job which will generate the jobs for you - ${PRODUCT_NAME}.JobGen - with parameters see <a href="https://gist.github.com/hagzag/cfe6f2d47d37249aed91">this gist</a><br />
-		<img alt="Job Gen Parameters" src="{{ asset_path upload/29/JobGen-params.png }} />
+		<img alt="Job Gen Parameters" src="{% asset_path default/upload/29/JobGen-params.png %}" />
 		<ul>
 			<li>
 				template_job [default value = ${PRODUCT_NAME}.Template]</li>

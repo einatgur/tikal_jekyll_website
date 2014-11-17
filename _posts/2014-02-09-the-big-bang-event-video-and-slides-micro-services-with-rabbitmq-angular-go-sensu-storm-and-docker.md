@@ -19,7 +19,7 @@ tags:
 	<tbody>
 		<tr>
 			<td style="width: 105px;">
-			<p>&nbsp;&nbsp;<img alt="" src="{{ asset_path fullstack-logo.png }} style="line-height: 1.6em; width: 80px; height: 80px;" /></p>
+			<p>&nbsp;&nbsp;<img alt="" src="{% asset_path default/fullstack-logo.png %}" style="line-height: 1.6em; width: 80px; height: 80px;" /></p>
 			</td>
 			<td colspan="2">
 			<p itemprop="name" style="color: rgba(0, 0, 0, 0.952941); font-family: Whitney, helvetica, arial, sans-serif; margin: 0px; padding: 0px 0px 9px; line-height: 1.1; font-weight: 700; font-size: 38px; letter-spacing: -0.75px;"><span style="font-weight: normal; line-height: 1.2em;">The Big Bang event&nbsp;</span><br />
@@ -27,7 +27,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3"><img alt="" src="{{ asset_path fs-event2.png }} style="height: 100%; width: 100%;" /></td>
+			<td colspan="3"><img alt="" src="{% asset_path default/fs-event2.png %}" style="height: 100%; width: 100%;" /></td>
 		</tr>
 		<tr>
 			<td colspan="3">
@@ -39,7 +39,7 @@ tags:
 			<td colspan="3">&nbsp;</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="{{ asset_path avitz.png }} style="width: 100px; height: 100px; float: left;" /></td>
+			<td><img alt="" src="{% asset_path default/avitz.png %}" style="width: 100px; height: 100px; float: left;" /></td>
 			<td colspan="2">
 			<div><strong>Splitting the monolithic application, when why and how?&nbsp;</strong><br />
 			We will showcase the application, why was it split into several services and will also discuss the messaging that&#39;s required to run this kind of application in production. &nbsp;<br />
@@ -54,7 +54,7 @@ tags:
 			<td colspan="3">&nbsp;</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="{{ asset_path assaf_g.png }} style="width: 100px; height: 100px;" /></td>
+			<td><img alt="" src="{% asset_path default/assaf_g.png %}" style="width: 100px; height: 100px;" /></td>
 			<td colspan="2">
 			<div><strong>Moving to Client-side Application from Server Page Application. </strong><br />
 			A talk about the necessity and advantages of developing UI as detached client rendered web-apps.&nbsp;<strong>20min By Assaf Gannon</strong>&nbsp;</div>
@@ -74,7 +74,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="{{ asset_path tor.png }} style="width: 100px; height: 100px;" />​</td>
+			<td><img alt="" src="{% asset_path default/tor.png %}" style="width: 100px; height: 100px;" />​</td>
 			<td colspan="2">
 			<div><strong>High-throughput Service using Go&nbsp;</strong><br />
 			Go is an open source language from Google, combines both high performance and high productivity. In this talk I will introduce some of the language features and will demonstrate a small and performant web-service written in go.&nbsp;<strong>30min By Tor Ivry&nbsp;</strong>(<a href="https://speakerdeck.com/torkale/writing-web-services-with-go">view the slides</a>)</div>
@@ -86,7 +86,7 @@ tags:
 		</tr>
 		<tr>
 			<td>
-			<p><img alt="" src="{{ asset_path zohar.png }} style="width: 100px; height: 100px;" />​</p>
+			<p><img alt="" src="{% asset_path default/zohar.png %}" style="width: 100px; height: 100px;" />​</p>
 
 			<p>&nbsp;</p>
 			</td>
@@ -101,7 +101,7 @@ tags:
 		</tr>
 		<tr>
 			<td>
-			<p><img alt="" src="{{ asset_path yanai.png }} style="width: 100px; height: 100px;" />​</p>
+			<p><img alt="" src="{% asset_path default/yanai.png %}" style="width: 100px; height: 100px;" />​</p>
 
 			<p>&nbsp;</p>
 			</td>
@@ -117,7 +117,7 @@ tags:
 		</tr>
 		<tr>
 			<td>
-			<p><img alt="" src="{{ asset_path haggai.png }} style="width: 100px; height: 100px;" /></p>
+			<p><img alt="" src="{% asset_path default/haggai.png %}" style="width: 100px; height: 100px;" /></p>
 			</td>
 			<td colspan="2">
 			<div><strong>Docking your services with Docker&nbsp;</strong><br />
