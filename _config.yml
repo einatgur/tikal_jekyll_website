@@ -13,7 +13,6 @@ assets:
     js:   uglifier
     debug: true
 paginate: 10
-
 prose:
   rooturl: '_posts'
   siteurl: 'http://www.tikalk.com'
@@ -35,7 +34,7 @@ prose:
           value: "post"
           placeholder: "Your Github username"
       - name: "title"
-          field:
+        field:
           element: "text"
           label: "title"
       - name: "tags"
