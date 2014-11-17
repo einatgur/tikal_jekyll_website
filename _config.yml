@@ -27,8 +27,8 @@ metadata:
           placeholder: "Your Github username"
       - name: "title"
           field:
-            element: "text"
-            label: "title"
+          element: "text"
+          label: "title"
       - name: "tags"
         field:
           element: "multiselect"
