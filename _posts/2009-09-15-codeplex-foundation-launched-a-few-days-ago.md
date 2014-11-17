@@ -3,7 +3,7 @@ layout: post
 title: CodePlex Foundation launched a few days ago
 created: 1253048873
 author: andrew
-permalink: "/net/codeplex-foundation-launched-few-days-ago"
+permalink: "/android/codeplex-foundation-launched-few-days-ago"
 tags:
 - ".NET"
 - Open Source

@@ -3,7 +3,7 @@ layout: post
 title: 23 .NET Open Source Projects
 created: 1248385232
 author: lior.kanfi
-permalink: "/net/23-net-open-source-projects"
+permalink: "/android/23-net-open-source-projects"
 tags:
 - ".NET"
 - ".Net Open Source"

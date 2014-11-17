@@ -4,7 +4,7 @@ title: C# WinForms - Janus UITab Control Extension Method - RestoreTabs after ta
   closed or container resized
 created: 1300751347
 author: dror
-permalink: "/net/c-winforms-janus-uitab-control-extension-method-restoretabs-after-tab-closed-or-container"
+permalink: "/android/c-winforms-janus-uitab-control-extension-method-restoretabs-after-tab-closed-or-container"
 tags:
 - ".NET"
 - WinForms
