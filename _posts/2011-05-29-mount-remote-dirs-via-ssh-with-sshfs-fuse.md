@@ -3,7 +3,7 @@ layout: post
 title: Mount remote dirs via ssh with sshfs / fuse
 created: 1306703837
 author: hagzag
-permalink: "/alm/mount-remote-dirs-ssh-sshfs-fuse"
+permalink: "/devops/mount-remote-dirs-ssh-sshfs-fuse"
 tags:
 - DevOps
 - ssh

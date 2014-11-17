@@ -3,7 +3,7 @@ layout: post
 title: git svn --preserve-empty-dirs - the performace-killer switch
 created: 1408629616
 author: yorammi
-permalink: "/alm/the-svn-performance-killer-switch"
+permalink: "/devops/the-svn-performance-killer-switch"
 tags:
 - Incubator
 - git

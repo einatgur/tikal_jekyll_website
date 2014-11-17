@@ -3,7 +3,7 @@ layout: post
 title: Eclipse DemoCamps Galileo 2009/Tel Aviv
 created: 1245188097
 author: lior.kanfi
-permalink: "/alm/eclipse-democamps-galileo-2009tel-aviv"
+permalink: "/devops/eclipse-democamps-galileo-2009tel-aviv"
 tags:
 - DevOps
 ---

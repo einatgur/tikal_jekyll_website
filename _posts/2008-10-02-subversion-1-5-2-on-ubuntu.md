@@ -3,7 +3,7 @@ layout: post
 title: Subversion 1.5.2 on ubuntu
 created: 1222983210
 author: miron
-permalink: "/alm/subversion-152-ubuntu"
+permalink: "/devops/subversion-152-ubuntu"
 tags:
 - DevOps
 - subversion

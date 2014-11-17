@@ -3,7 +3,7 @@ layout: post
 title: Nexus 1.7.2 Improved Search Interface
 created: 1283376197
 author: hagzag
-permalink: "/alm/nexus-172-improved-search-interface"
+permalink: "/devops/nexus-172-improved-search-interface"
 tags:
 - DevOps
 - Nexus Open Source

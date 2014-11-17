@@ -3,7 +3,7 @@ layout: post
 title: 'Radically Simple ?   PCLinuxOS '
 created: 1259621252
 author: shalom
-permalink: "/alm/radically-simple-pclinuxos"
+permalink: "/devops/radically-simple-pclinuxos"
 tags:
 - DevOps
 - PCLinuxOS apt-get upgrade linux

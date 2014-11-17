@@ -3,7 +3,7 @@ layout: post
 title: 'Getting Ready for Eclipse 3.5 (Galileo): What’s New?'
 created: 1245187543
 author: lior.kanfi
-permalink: "/alm/getting-ready-eclipse-35-galileo-what’s-new"
+permalink: "/devops/getting-ready-eclipse-35-galileo-what’s-new"
 tags:
 - DevOps
 - Galileo

@@ -3,7 +3,7 @@ layout: post
 title: Nexus - replacement to Proximity
 created: 1207262460
 author: lior.kanfi
-permalink: "/alm/nexus-replacement-proximity"
+permalink: "/devops/nexus-replacement-proximity"
 tags:
 - DevOps
 ---

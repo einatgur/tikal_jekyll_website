@@ -3,7 +3,7 @@ layout: post
 title: An online "m2eclipse Book"
 created: 1244496645
 author: lior.kanfi
-permalink: "/alm/online-m2eclipse-book"
+permalink: "/devops/online-m2eclipse-book"
 tags:
 - DevOps
 - m2eclipse

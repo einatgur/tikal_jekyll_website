@@ -3,7 +3,7 @@ layout: post
 title: Maven 3.x preview
 created: 1264458046
 author: liya
-permalink: "/alm/maven-3x-preview"
+permalink: "/devops/maven-3x-preview"
 tags:
 - DevOps
 - build

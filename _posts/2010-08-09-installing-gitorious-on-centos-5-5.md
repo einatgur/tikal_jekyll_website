@@ -3,7 +3,7 @@ layout: post
 title: Installing Gitorious on centos 5.5
 created: 1281391653
 author: shalom
-permalink: "/alm/installing-gitorious-centos-55"
+permalink: "/devops/installing-gitorious-centos-55"
 tags:
 - DevOps
 - git gitorious centos 5.5

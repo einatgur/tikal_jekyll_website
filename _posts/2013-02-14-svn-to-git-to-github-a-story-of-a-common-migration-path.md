@@ -3,7 +3,7 @@ layout: post
 title: SVN to GIT to GitHub - a story of a common migration path
 created: 1360880280
 author: yorammi
-permalink: "/alm/svn-git-github-story-common-migration-path"
+permalink: "/devops/svn-git-github-story-common-migration-path"
 tags:
 - DevOps
 - git

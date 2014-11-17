@@ -3,7 +3,7 @@ layout: post
 title: Nexus Open Source 1.5.0 released
 created: 1264977528
 author: hagzag
-permalink: "/alm/nexus-open-source-150-released"
+permalink: "/devops/nexus-open-source-150-released"
 tags:
 - DevOps
 - Nexus Open Source

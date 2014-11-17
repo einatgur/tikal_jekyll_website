@@ -3,7 +3,7 @@ layout: post
 title: Most Absurd Thing I Heard Lately
 created: 1220567600
 author: zvika
-permalink: "/alm/most-absurd-thing-i-heard-lately"
+permalink: "/devops/most-absurd-thing-i-heard-lately"
 tags:
 - DevOps
 ---

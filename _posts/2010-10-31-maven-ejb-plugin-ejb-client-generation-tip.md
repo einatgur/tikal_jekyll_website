@@ -3,7 +3,7 @@ layout: post
 title: Maven EJB Plugin - ejb client generation-tip
 created: 1288566746
 author: hagzag
-permalink: "/alm/maven-ejb-plugin-ejb-client-generation-tip"
+permalink: "/devops/maven-ejb-plugin-ejb-client-generation-tip"
 tags:
 - DevOps
 - weblogic

@@ -3,7 +3,7 @@ layout: post
 title: ETL for developers, w. video
 created: 1288130934
 author: udid
-permalink: "/alm/etl-developers-w-video"
+permalink: "/devops/etl-developers-w-video"
 tags:
 - DevOps
 - OSBI
