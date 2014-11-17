@@ -3,7 +3,7 @@ layout: post
 title: 'Better Buttered: A look at Butter Knife, a View "injection" library for Android'
 created: 1385560395
 author: michaelh
-permalink: better-buttered-a-look-at-butter-knife-a-view-injection-library-for-android
+permalink: better-buttered-look-butter-knife-view-injection-library-android
 tags:
 - Incubator
 - Android

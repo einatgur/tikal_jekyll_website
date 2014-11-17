@@ -3,7 +3,7 @@ layout: post
 title: PreferenceActivity Crashes in Android 4.4 (KitKat)
 created: 1387358231
 author: michaelh
-permalink: preferenceactivity-crashes-in-android-4-4-kitkat
+permalink: preferenceactivity-crashes-android-4-4-kitkat
 tags:
 - Incubator
 - fragment

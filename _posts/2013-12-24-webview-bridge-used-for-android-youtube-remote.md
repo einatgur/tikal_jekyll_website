@@ -3,7 +3,7 @@ layout: post
 title: WebView Bridge used for Android YouTube Remote
 created: 1387910339
 author: michaelh
-permalink: webview-bridge-used-for-android-youtube-remote
+permalink: webview-bridge-used-android-youtube-remote
 tags:
 - .NET
 - Android

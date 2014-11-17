@@ -3,7 +3,7 @@ layout: post
 title: Android – Israel Timezone
 created: 1381771364
 author: chaim.turkel
-permalink: android-israel-timezone
+permalink: android---israel-timezone
 tags:
 - Incubator
 - Android
