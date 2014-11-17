@@ -21,7 +21,7 @@ tags:
 			<td style="width: 120px;">
 			<p>&nbsp;&nbsp;</p>
 
-			<p><img alt="" height="100" src="http://www.tikalk.com/files/fullstack-logo.png" width="100" /></p>
+			<p><img alt="" height="100" src="{{ asset_path fullstack-logo.png }} width="100" /></p>
 			</td>
 			<td colspan="2">
 			<h2>Beyond Java-JVM<br />
@@ -58,7 +58,7 @@ tags:
 						</td>
 					</tr>
 					<tr>
-						<td width="120px"><img alt="" src="http://www.tikalk.com/files/yanai.png" style="width: 100px; height: 100px; float: left;" />​</td>
+						<td width="120px"><img alt="" src="{{ asset_path yanai.png }} style="width: 100px; height: 100px; float: left;" />​</td>
 						<td colspan="2">
 						<div>In this session we&#39;ll explain what &ldquo;functional programming&rdquo; is, and introduce some of its terminology with the new Java 8 release. We examine the concepts behind functional programming such as &ldquo;side effects&rdquo;, &ldquo;immutability&rdquo; and &ldquo;declarative programming&rdquo; by apply them with Java 8.</div>
 
@@ -78,7 +78,7 @@ tags:
 					</tr>
 					<tr>
 						<td>
-						<p><img alt="" src="http://www.tikalk.com/files/shaiyalin.png" style="opacity: 0.9; width: 100px; height: 100px; float: left;" />​</p>
+						<p><img alt="" src="{{ asset_path shaiyalin.png }} style="opacity: 0.9; width: 100px; height: 100px; float: left;" />​</p>
 
 						<p>&nbsp;</p>
 
@@ -116,7 +116,7 @@ tags:
 						</td>
 					</tr>
 					<tr>
-						<td><img alt="" src="http://www.tikalk.com/files/nir.png" style="opacity: 0.9; width: 100px; height: 100px; float: left;" />​</td>
+						<td><img alt="" src="{{ asset_path nir.png }} style="opacity: 0.9; width: 100px; height: 100px; float: left;" />​</td>
 						<td colspan="2">
 						<div>In this session we&#39;ll take a whirlwind tour through Clojure and introduce some basic syntax and the philosophy behind it. We&#39;ll see how the concepts of functional programming are inherent in the language and how immutability, lazy sequence processing, and a few lines of code can change the way you think.&nbsp;<br />
 						By Nir Rubinstein from AppsFlyer ~45min.</div>

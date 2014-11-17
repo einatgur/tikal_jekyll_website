@@ -19,14 +19,14 @@ tags:
 	<tbody>
 		<tr>
 			<td style="width: 105px;">
-			<p>&nbsp;&nbsp;<img alt="" src="http://www.tikalk.com/files/fullstack-logo.png" style="line-height: 1.6em; width: 80px; height: 80px;" /></p>
+			<p>&nbsp;&nbsp;<img alt="" src="{{ asset_path fullstack-logo.png }} style="line-height: 1.6em; width: 80px; height: 80px;" /></p>
 			</td>
 			<td colspan="2">
 			<h2>Never-Ending Data Streams</h2>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="3"><img alt="" src="http://www.tikalk.com/files/fs-event2.png" style="height: 237px; width: 600px;" /></td>
+			<td colspan="3"><img alt="" src="{{ asset_path fs-event2.png }} style="height: 237px; width: 600px;" /></td>
 		</tr>
 		<tr>
 			<td colspan="3">
@@ -42,7 +42,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="http://www.tikalk.com/files/yanai.png" style="width: 100px; height: 100px; float: left;" /></td>
+			<td><img alt="" src="{{ asset_path yanai.png }} style="width: 100px; height: 100px; float: left;" /></td>
 			<td colspan="2">
 			<p>Kafka is a high-throughput distributed messaging system,<br />
 			and Storm is a distributed and&nbsp;fault-tolerant real-time computation.<br />
@@ -63,7 +63,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="http://www.tikalk.com/files/uri.png" style="width: 100px; height: 100px;" /></td>
+			<td><img alt="" src="{{ asset_path uri.png }} style="width: 100px; height: 100px;" /></td>
 			<td colspan="2">
 			<p>Today&#39;s applications generate huge amount of data. In order to be useful, the data has to be summarized and visualized concisely. In this talk we will learn about D3.js, the web developer Swiss Army Knife for visualizing and working with data. Then we will take it one step further, and integrate our D3-based data visualizations into an Angular.JS application.&nbsp;<br />
 			50 min&nbsp;By: Uri Shaked &quot;WatchDox&quot;</p>
@@ -79,7 +79,7 @@ tags:
 			</td>
 		</tr>
 		<tr>
-			<td><img alt="" src="http://www.tikalk.com/files/ran.png" style="width: 97px; height: 100px;" /></td>
+			<td><img alt="" src="{{ asset_path ran.png }} style="width: 97px; height: 100px;" /></td>
 			<td>
 			<p>In LivePerson we collect a lot of customer data. The data is stored in Hadoop and can be used for batch processing and querying.&nbsp;Last year, we introduced Kafka and Storm to complete a big data solution for Real-time processing in addition to batch processing.&nbsp;In this&nbsp;lecture&nbsp;we will introduce the integration solution in LivePerson. We will also&nbsp;address some important issues in the&nbsp;solution: 1)&nbsp;High Availability ; 2)&nbsp;Data&nbsp;consistency; 3)&nbsp;Data&nbsp;format&nbsp;and&nbsp;schema enforcement; 4) Auditing data&nbsp;integrity.&nbsp;<br />
 			50 min&nbsp;By:Ran Silberman&nbsp;&quot;LivePerson&quot;</p>

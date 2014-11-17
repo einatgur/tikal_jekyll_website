@@ -25,4 +25,4 @@ This forum, will discuss and learn about Google technology and services, Google 
 <span style="color: rgb(255, 102, 0); "><span style="font-size: large; ">2. From Java to Scala, an Android application case - Ittay Dror, TIKAL<br />
 </span></span><span style="font-size: large; "> </span>3. C2DM - Connecting to the cloud - Leonid Oevsky, SCE</p>
 <p>&nbsp;</p>
-<p><a href="http://www.meetup.com/GDG-Beer-Sheva/events/71106542/"><img src="http://www.tikalk.com/files/upload/1/register.png" alt="" /></a></p>
+<p><a href="http://www.meetup.com/GDG-Beer-Sheva/events/71106542/"><img src="{{ asset_path upload/1/register.png }} alt="" /></a></p>

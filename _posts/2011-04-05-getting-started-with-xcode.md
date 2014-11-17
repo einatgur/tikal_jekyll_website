@@ -21,15 +21,15 @@ tags:
 <p>Next I recommend getting a developer license.  Head on over to:<a href="http://developer.apple.com/devcenter/ios/index.action" target="_blank">http://developer.apple.com/devcenter/ios/index.action</a>.  Here you will find a great deal of help.  Take some time to read some of the How-Tos and watch some of the videos.   If you don’t already have an Apple ID create one and login.  You don’t have to pay any money just yet.  You can download xcode for free.  The first time you will have to worry about money is when you want to start testing on your device.  You will need to purchase an annual license to be a member of the Apple Developer Program.  The cost is 99 dollars.</p>
 <p>Once you download xcode run the installer.  When it is done find it in your Application folder and run it.  You will get the following window:</p>
 <p>Xcode Opening Window.</p>
-<div class="wp-caption alignnone" style="width: 816px"><img title="Xcode Opening Window" src="http://www.tikalk.com/files/Screen%20shot%202011-02-17%20at%203.53.28%20PM.png" alt="Xcode Opening Window" width="806" height="528" /><p class="wp-caption-text">Xcode Opening Window</p></div>
+<div class="wp-caption alignnone" style="width: 816px"><img title="Xcode Opening Window" src="{{ asset_path Screen shot 2011-02-17 at 3.53.28 PM.png }} alt="Xcode Opening Window" width="806" height="528" /><p class="wp-caption-text">Xcode Opening Window</p></div>
 <p>Click on: Create a new Xcode project.</p>
 <p>The next window will look something like this:</p>
 <p>Xcode Project Types.</p>
-<div class="wp-caption alignnone" style="width: 779px"><img title="Xcode Project Types" src="http://www.tikalk.com/files/Screen%20shot%202011-02-17%20at%203.55.00%20PM.png" alt="Xcode Project Types." width="769" height="721" /><p class="wp-caption-text">Xcode Project Types.</p></div>
+<div class="wp-caption alignnone" style="width: 779px"><img title="Xcode Project Types" src="{{ asset_path Screen shot 2011-02-17 at 3.55.00 PM.png }} alt="Xcode Project Types." width="769" height="721" /><p class="wp-caption-text">Xcode Project Types.</p></div>
 <p>Go ahead and select Navigation based application.  Also,  select the check box for Core Data.  Core Data is described here: <a href="http://en.wikipedia.org/wiki/Core_Data" target="_blank">http://en.wikipedia.org/wiki/Core_Data</a> and a great tutorial is here:<a href="http://blog.sallarp.com/iphone-core-data-uitableview-drill-down/" target="_blank">http://blog.sallarp.com/iphone-core-data-uitableview-drill-down/</a>.</p>
 <p>Once you complete the new project wizard your xcode window will look something like this:</p>
 <p>Xcode Project Window.</p>
-<div class="wp-caption alignnone" style="width: 903px"><img title="Xcode Project Window" src="http://www.tikalk.com/files/Screen%20shot%202011-02-17%20at%204.03.51%20PM.png" alt="Xcode Project Window" width="893" height="825" /><p class="wp-caption-text">Xcode Project Window</p></div>
+<div class="wp-caption alignnone" style="width: 903px"><img title="Xcode Project Window" src="{{ asset_path Screenshot 2011-02-17 at 4.03.51 PM.png }} alt="Xcode Project Window" width="893" height="825" /><p class="wp-caption-text">Xcode Project Window</p></div>
 <p>Now I will briefly explain what the folders and items are in the xcode project.  The blue icon at the top represents the project and double clicking on it will open a window to configure project properties.  In this window you will be able to configure things like build output folder,  target os,  and developer certificate configuration.  It is a good idea to open this window and look through it to familiarize yourself with what is available.  However,  when getting started it is not likely you will have to touch any of these settings.</p>
 <p> </p>
 <p>The next folder is called Classes.  This is where you can (and should) store all your classes that will make up your models, controllers, and views.  Xcode won’t enforce any of this, but it is a good idea to keep your code organized into logical sections.</p>
@@ -66,7 +66,7 @@ tags:
 <p> </p>
 <p>If you click the build and run button you will see the following running inside the simulator window:</p>
 <p>Xcode Simulator Window.</p>
-<div class="wp-caption alignnone" style="width: 657px"><img title="Xcode Simulator Window" src="http://www.tikalk.com/files/Screen%20shot%202011-02-20%20at%2010.52.42%20AM.png" alt="Xcode Simulator Window" width="647" height="965" /><p class="wp-caption-text">Xcode Simulator Window</p></div>
+<div class="wp-caption alignnone" style="width: 657px"><img title="Xcode Simulator Window" src="{{ asset_path Screen shot 2011-02-20 at 10.52.42 AM.png }} alt="Xcode Simulator Window" width="647" height="965" /><p class="wp-caption-text">Xcode Simulator Window</p></div>
 <p>This is what you for free when creating a new UINavigation based project.</p>
 <p> </p>
 <p>To get you started I will show you the code that gets the view up and the code that handles the buttons displayed.</p>

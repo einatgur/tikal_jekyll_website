@@ -19,7 +19,7 @@ tags:
 <pre>
 curl -s ${JENKINS_URL}/job/${JOB_NAME}/config.xml -u youruser:yourpasswd | xmlstarlet el -a</pre>
 <p>So this section in the xml is actually:</p>
-<p><img alt="scm url in config.xml" src="http://www.tikalk.com/files/upload/29/in_job_config_xml.png" /></p>
+<p><img alt="scm url in config.xml" src="{{ asset_path upload/29/in_job_config_xml.png }} /></p>
 <pre>
 project/scm/locations/hudson.scm.SubversionSCM_-ModuleLocation/remote</pre>
 <p>So all I have to so is insert / esit the xml file and create the new job:</p>
