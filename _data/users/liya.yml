@@ -4,24 +4,25 @@ login: liya
 first_name: Liya
 last_name: Katz
 description: DevOps Architect
-about: Over 10 years of experience in the software industry, design, development and
-  deployment of configuration management and development based on open source tools.
+about: Over 10 years of experience in the software industry, design, development and deployment of configuration management and development suites based on open source tools.
 follow_me_urls: []
 image_path: pictures/picture-50-1361228790.jpg
 permalink: /devops/liya
 skills:
   expert_skills:
-    Maven: '5'
-    Bugzilla: '9'
-    SVN: '8'
-    Jenkins: '4'
+    Jenkins: '6'
+    Maven: '8'
+    Bugzilla: '10'
+    SVN: '10'
     ANT: '10'
   developer_skills:
     JAVA: '5'
     Linux: '5'
     HTML: '5'
     JavaScript: '5'
-    PYTHON: '5'
+    Python: '5'
+    Perl: '10'
     SQL: '10'
     MySQL: '10'
-    Git: '10'
+    Git: '4'
+    Ansible: '1'
