@@ -14,7 +14,7 @@ assets:
     debug: true
 paginate: 10
 prose:
-  rooturl: '_posts'
+  rooturl: ''
   siteurl: 'http://www.tikalk.com'
   media: '_assets/images/default'
   ignore:
