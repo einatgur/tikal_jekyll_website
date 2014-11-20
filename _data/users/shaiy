@@ -1,0 +1,34 @@
+---
+login: shaiy
+first_name: Shai
+last_name: Yerushalmi
+description: Sr. JavaScript Developer
+about: Experienced JS developer specializing in web development on both server and client
+follow_me_urls: ['https://www.linkedin.com/profile/view?id=18422875&authType=NAME_SEARCH&authToken=ppzB&locale=en_US&srchid=1064050701416479994458&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A1064050701416479994458%2CVSRPtargetId%3A18422875%2CVSRPcmpt%3Aprimary']
+permalink: /js/shaiy
+
+skills:
+  expert_skills:
+    JavaScript: '6'
+    Cross Browser Development: '6'
+    Creating Custom JS Classes: '5'
+    SQL: '6'
+    jQuery: '5'
+    AngularJS: '2'
+  developer_skills:
+    Backbone.js: '4'
+    CSS3: '2'
+    Underscore: '3'
+    
+experience:
+- title: Sr. JavaScript Developer @ Initial Rewards
+  years: '2014'
+  description: 
+    "- In charge of designing and developing REST API written with PHP (Laravel Framework) as well as AngularJS app to communicate with the API for testing purposes and configuration of the server state\n
+    - In this project we used server side written in PHP and hosted on AWS with a client side in AngularJS. I participated in writing the fullstack app server + client.\n
+    - Communicate and integrate between all different players in the project as well as the need to handle the infrastructure of the servers and git on the server side."
+- title: JavaScript Developer @ Kryon Systems
+  years: '2014'
+  description: 
+    "The project addressed the development of the definition bouncers algorithm to identify elements of the HTML for the “Leo studio” product.
+    The algorithm is shown as a flowchart and will be encoded in JavaScript to enable rewritten to other programming languages."
