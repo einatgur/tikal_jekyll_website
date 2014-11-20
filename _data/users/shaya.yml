@@ -5,7 +5,7 @@ first_name: Shay
 last_name: Asher
 description: DevOps Expert
 about: 'DevOps Expert with vast experience of CI/CD'
-follow_me_urls: [https://www.linkedin.com/profile/view?id=88312454&authType=NAME_SEARCH&authToken=fpom&locale=en_US&trk=tyah2&trkInfo=tarId%3A1416493759250%2Ctas%3Ashay%20asher%2Cidx%3A1-1-1]
+follow_me_urls: ['https://www.linkedin.com/profile/view?id=88312454&authType=NAME_SEARCH&authToken=fpom&locale=en_US&trk=tyah2&trkInfo=tarId%3A1416493759250%2Ctas%3Ashay%20asher%2Cidx%3A1-1-1']
 image_path: pictures/ShayAsher.jpg
 permalink: devops/shaya
 
@@ -25,9 +25,8 @@ skills:
 experience:
 - title: DevOps Engineer @ Scene53/Shaker
   years: '2014-2014'
-  description: 
-   Scene53 is a gaming company with a new growing product.\n
-   Main tasks and responsibilities included:\n
+  description: "Scene53 is a gaming company with a new growing product.\n
+   Main tasks and responsibilities included:\n\n
    - Creating a local (Xen) multiple environments build-deploy mechanism (Jenkins, Maven, Python, Bash)\n
      Allow developers to deploy Snapshots into local isolated staging environments\n
    - Improve existing production (AWS) CD pipeline (Jenkins, Maven, Python,Bash, Git)\n
@@ -38,14 +37,13 @@ experience:
      Write a python log parser and aggregation tool\n
      Loading data\n
      Generating interesting graphs reports\n
-   - Design for scaling (expecting x50 current load...)\n
+   - Design for scaling (expecting x50 current load...)\n"
 - title: DevOps Engineer @ Cloudyn
   years: '2013-2014'
-  description: 
-   General product consultancy, product design and implementation.\n
+  description: "General product consultancy, product design and implementation.\n
    The goal was to build a multi-cloud cost management and public/private cloud optimization solution (SaaS and on-premise).\n 
    Main focus was on adding OpenStack cloud support to the existing system.\n
-   Among the tasks and responsibilities included were:\n
+   Among the tasks and responsibilities included were:\n\n
    - Identifying common basis for integration with OpenStack metadata and other supported cloud providers (AWS, GCE)\n
    - Identifying the required OpenStack services, setup and APIs suitable to customer needs\n
    - Product design (on-premise/SaaS solution, data-model, go-to-market strategy)\n
@@ -54,4 +52,4 @@ experience:
    - Writing OpenStack scheduled scalable remote data collector in java (persistence to disk and S3)\n
    - Designing on-premise appliance delivery pipeline\n
    - Generating relevant blogs and content to enrich product and company brands\n
-   - Engaging with customers, product demos, and market research to identify products customer needs\n
+   - Engaging with customers, product demos, and market research to identify products customer needs\n"
