@@ -34,10 +34,12 @@ experience:
      * Automating deployment testing in Vms.\n
      * Enabling automation of unit, integration & system testing in the organization.\n
      * Setting up build dependency testing matrices.\n
-     *Documenting system setup from bare bones to working system.\n
-     Other activities:
-     *Maintaining DevOps blog (devops.judes.co.il) and contributing to Tikal knowledge ALM site.
-     *Participating in an internal lectures and workshops of cutting edge deployment / orchestration tools such as Chef, Puppet,    	  Vagrant, Ansible etc.
-     Projects:
-     3/2014 - Wochit.com - Wrapping bash scripts to support automation of GIT flow."
+     * Documenting system setup from bare bones to working system.\n
+     Other activities:\n
+     ---------------\n
+     * Maintaining DevOps blog (devops.judes.co.il) and contributing to Tikal knowledge ALM site.\n
+     * Participating in an internal lectures and workshops of cutting edge deployment / orchestration tools such as Chef, Puppet, Vagrant, Ansible etc.\n\n
+     Projects:\n
+--------\n
+     3/2014 - *Wochit.com* - Wrapping bash scripts to support automation of GIT flow."
 
