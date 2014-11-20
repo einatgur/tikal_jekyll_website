@@ -1,11 +1,11 @@
-login: Ram-on
+login: ram-on
 first_name: Ram-on
 last_name: Agmon
 description: Senior DevOps Engineer
 about: Senior DevOps Engineer with over 9 years of experience with Linux distributions
 follow_me_urls: ['https://www.linkedin.com/profile/view?id=3432516&authType=NAME_SEARCH&authToken=UMZe&locale=en_US&trk=tyah2&trkInfo=tarId%3A1416472640213%2Ctas%3Aram-on%2Cidx%3A1-1-1']
 image_path: pictures/ram_on_agmon.jpg
-permalink: /devops/ramon
+permalink: /devops/ram-on
 
 skills:
   expert_skills:
