@@ -31,25 +31,24 @@ experience:
   years: ''
   description: 
     Working as a part of 2 groups of the company:\n 
-     1) BigData group - Set up continuous integration environment from scratch using Jenkins,  Maven, GIT\n
-     2) On-line group - Automation using: ‫‪Jenkins, Maven, GIT‬‬ and Bash scripting, Release Management.\n 
-     CM consulting for improving workflow of the developers/QA.\n 
-     Working in Agile methodology
+    1) BigData group - Set up continuous integration environment from scratch using Jenkins,  Maven, GIT\n
+    2) On-line group - Automation using: ‫‪Jenkins, Maven, GIT‬‬ and Bash scripting, Release Management.\n 
+    CM consulting for improving workflow of the developers/QA.\n 
+    Working in Agile methodology
 - title: ALM Expert @ Mentor Graphics‬‬
   years: ''
-  description: 
-    "Set up continuous integration environment and development environment for 2 group of the company.\n 
-     Working in Java environment.\n
-     Adjusting the build process for different platforms - WIN/LINUX.\n 
-     Migration of Maven to Ant according to the client's request.
+  description: Set up continuous integration environment and development environment for 2 group of the company.\n 
+      Working in Java environment.\n
+      Adjusting the build process for different platforms - WIN/LINUX.\n 
+      Migration of Maven to Ant according to the client's request.
 - title: ALM Expert @ Retalix
   years: ''
   description: 
     Writing and maintaining of an installer for in-house use.\n
-     Migration and updating Hibernate and Spring.\n 
-     Providing a solution for integration of TFS, JENKINS, Xcode.\n 
-     Integrating Eclipse and TFS.\n 
-     Writing user guides.
+    Migration and updating Hibernate and Spring.\n 
+    Providing a solution for integration of TFS, JENKINS, Xcode.\n 
+    Integrating Eclipse and TFS.\n 
+    Writing user guides.
 - title: Short term Projects
   years: ''
   description: 
