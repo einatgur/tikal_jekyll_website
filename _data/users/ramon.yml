@@ -1,0 +1,35 @@
+login: Ram-on
+first_name: Ram-on
+last_name: Agmon
+description: Senior DevOps Engineer
+about: Senior DevOps Engineer with over 9 years of experience with Linux distributions
+follow_me_urls: ['https://www.linkedin.com/profile/view?id=3432516&authType=NAME_SEARCH&authToken=UMZe&locale=en_US&trk=tyah2&trkInfo=tarId%3A1416472640213%2Ctas%3Aram-on%2Cidx%3A1-1-1']
+image_path: pictures/ram_on_agmon.jpg
+permalink: /devops/ramon
+
+skills:
+  expert_skills:
+    Linux OS: '9'
+    Bash: '9'
+    Clustering and High Availability: '6'
+    Virtualization-KVM: '5'
+    Chef: '1.5'
+  developer_skills:
+    Ruby: '1.5'
+    Python: '5'
+    OpenStack: '0.5'
+    AWS: '2'
+    JBoss&Tomcat: '4'
+    Jenkins: '1'
+    Git: '1'
+    SVN: '5'
+    SQL: '4'
+ 
+experience:
+- title: Senior DevOps Engineer @ F5
+  years: '2014'
+  description: 
+    "Improving stability of the product by excluding services out of Pacemaker cluster.\n
+     Dev-ops: analyzing and configuring java services, re-configuring them to run under Monit, fix script files as needed.\n
+      Main Technologies: RHEL cluster - Pacemaker and Corosync."
+

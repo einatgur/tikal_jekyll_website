@@ -1,0 +1,43 @@
+login: gilad
+first_name: Gilad
+last_name: Judes
+description: Senior DevOps Engineer
+about: 'Senior DevOps Engineer, experienced with Continuous Integration and operations'
+follow_me_urls: ['https://www.linkedin.com/profile/view?id=157027&authType=NAME_SEARCH&authToken=IUaa&locale=en_US&trk=tyah2&trkInfo=tarId%3A1416474178080%2Ctas%3Agilad%2Cidx%3A1-1-1']
+image_path: pictures/Gilad_J.jpg
+permalink: /devops/giladj
+
+skills:
+  expert_skills:
+    Linux OS: '18'
+    Jenkins: '3'
+    SVN: '2'
+    Bash: '3'
+    Shell: '1'
+  developer_skills:
+    Artifactory: '2'
+    Gradle: '2'
+    Git: '2'
+    EC2: '2'
+    Puppet: '1'
+    Ruby: '1'
+
+experience:
+- title: Senior DevOps Engineer @ ForeScout
+  years: '2014'
+  description: 
+    "* Migrating Perl build scripts to Gradle.\n
+     * Standardizing Gradle build scripts so that can run by developers as well as automation tools (Jenkins).\n
+     * Build up of CI environment with Jenkins, Build Slaves and Artifactory.\n
+     * Setting up Artifactory repos to handle the build process and custom artifacts.\n
+     * Setting up automatic lab management with VMWare vCenter.\n
+     * Automating deployment testing in Vms.\n
+     * Enabling automation of unit, integration & system testing in the organization.\n
+     * Setting up build dependency testing matrices.\n
+     *Documenting system setup from bare bones to working system.\n
+     Other activities:
+     *Maintaining DevOps blog (devops.judes.co.il) and contributing to Tikal knowledge ALM site.
+     *Participating in an internal lectures and workshops of cutting edge deployment / orchestration tools such as Chef, Puppet,    	  Vagrant, Ansible etc.
+     Projects:
+     3/2014 - Wochit.com - Wrapping bash scripts to support automation of GIT flow."
+
