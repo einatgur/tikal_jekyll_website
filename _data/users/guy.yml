@@ -51,8 +51,7 @@ experience:
     Writing user guides.
 - title: Short term Projects
   years: ''
-  description: 
-    * Perfecto Mobile - Writing Jenkins plugin\n
+  description: "* Perfecto Mobile - Writing Jenkins plugin\n
     * DBglobe‬‬ - Cloud (AWS) administration, working with EC2\n
     * Contextream - Uploading and downloading compilations of C/JAVA code to Nexus using Maven\n
-    * Top spin security - Set up continuous integration environment using Bugzilla, Jenkins, Maven, Nexus. Using Maven for JAVA Dev environment.
+    * Top spin security - Set up continuous integration environment using Bugzilla, Jenkins, Maven, Nexus. Using Maven for JAVA Dev environment."
