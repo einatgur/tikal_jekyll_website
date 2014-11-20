@@ -15,6 +15,7 @@ module Jekyll
 
     def paginate(site, user)
       author = user["login"]
+      puts "Generating user page for: #{author}"
       posts_by_author = site.posts.find_all {|post| post.data["author"] == author}.sort_by {|post| -post.date.to_f}
       posts_by_author.each do |post|
         post.data["user"] = user
@@ -22,24 +23,43 @@ module Jekyll
       dir_name = user["permalink"] ? user["permalink"] : "/users/#{author}"
       num_pages = Pager.calculate_pages(posts_by_author, site.config['paginate'].to_i)
 
-      (1..num_pages).each do |page|
+      if num_pages == 0
         # create a pagination object containing page number,
         # previous page, next page etc
-        pager = Pager.new(site, page, posts_by_author, num_pages)
-        
+        # pager = Pager.new(site, page, posts_by_author, num_pages)
+
         # setup the page directory. If this is the first page it will
         # be saved inside the group's folder (for example
         # "/java/index.html"). Otherwise, it will be saved inside a
         # numbered subfolder ("java/page2/index.html")
-        dir = File.join(dir_name, page > 1 ? "page#{page}" : '')
 
         # creates the page (index.html)
-        page = UserPage.new(site, site.source, dir, user, dir_name)
+        page = UserPage.new(site, site.source, dir_name, user, dir_name)
 
         # adds pagination data to page
-        page.pager = pager
+        # page.pager = pager
 
         site.pages << page
+      else
+        (1..num_pages).each do |page|
+          # create a pagination object containing page number,
+          # previous page, next page etc
+          pager = Pager.new(site, page, posts_by_author, num_pages)
+
+          # setup the page directory. If this is the first page it will
+          # be saved inside the group's folder (for example
+          # "/java/index.html"). Otherwise, it will be saved inside a
+          # numbered subfolder ("java/page2/index.html")
+          dir = File.join(dir_name, page > 1 ? "page#{page}" : '')
+
+          # creates the page (index.html)
+          page = UserPage.new(site, site.source, dir, user, dir_name)
+
+          # adds pagination data to page
+          page.pager = pager
+
+          site.pages << page
+        end
       end
     end
     
@@ -49,6 +69,8 @@ module Jekyll
         @base = base
         @dir = dir
         @name = 'index.html'
+
+        puts "User page for: #{dir_name}"
 
         self.process(@name)
 
