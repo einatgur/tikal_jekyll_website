@@ -1,26 +1,59 @@
 ---
-id: 49159
 login: guy
 first_name: Guy
 last_name: Michaelis
-description: DevOps Expert
-about: ''
-follow_me_urls:
-- il.linkedin.com/pub/guy-michaelis/0/89/568
+description: ALM Expert
+about: 'ALM Expert with development background and vast experience with continuous integration'
+follow_me_urls: ['https://www.linkedin.com/pub/guy-michaelis/0/89/568']
 image_path: pictures/picture-49159-1383031512.jpg
 permalink: /devops/guy
+
 skills:
   expert_skills:
-    SQL: '10'
-    EJB2/3: '7'
-    JDBC: '7'
-    Linux: '10'
+    Jenkins: '2'
+    EJB: '7'
+    GIT: '1'
+    Maven: '15'
   developer_skills:
-    JAVA: '7'
-    Jenkins: '7'
-    Maven: '7'
+    SVN: '4'
+    JAVA: '8'
+    Bash: '1'
   familiar_skills:
     Spring: '1'
-    JBoss: '1'
-    Tomcat: '1'
-    ANT: '1'
+    AWS: '0.5'
+   
+experience:
+- title: ALM Expert @ ‪Sapiens‬‬
+  years: '2014'
+  description: 
+    "Improving the CI & Build process in JAVA - Spring/Hibernate environment using Jenkins and Maven."
+- title: ALM Expert @ PayPal
+  years: ''
+  description: 
+    "Working as a part of 2 groups of the company:\n 
+     1) BigData group - Set up continuous integration environment from scratch using Jenkins,  Maven, GIT\n
+     2) On-line group - Automation using: ‫‪Jenkins, Maven, GIT‬‬ and Bash scripting, Release Management.\n 
+     CM consulting for improving workflow of the developers/QA.\n 
+     Working in Agile methodology"
+- title: ALM Expert @ Mentor Graphics‬‬
+  years: ''
+  description: 
+    "Set up continuous integration environment and development environment for 2 group of the company.\n 
+     Working in Java environment.\n
+     Adjusting the build process for different platforms - WIN/LINUX.\n 
+     Migration of Maven to Ant according to the client's request."
+- title: ALM Expert @ Retalix
+  years: ''
+  description: 
+    "Writing and maintaining of an installer for in-house use.\n
+     Migration and updating Hibernate and Spring.\n 
+     Providing a solution for integration of TFS, JENKINS, Xcode.\n 
+     Integrating Eclipse and TFS.\n 
+     Writing user guides."
+- title: Short term Projects
+  years: ''
+  description: 
+    "Perfecto Mobile - Writing Jenkins plugin\n
+     DBglobe‬‬ - Cloud (AWS) administration, working with EC2\n
+     Contextream - Uploading and downloading compilations of C/JAVA code to Nexus using Maven\n
+     Top spin security - Set up continuous integration environment using Bugzilla, Jenkins, Maven, Nexus. Using Maven for JAVA Dev 	environment."
