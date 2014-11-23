@@ -24,32 +24,45 @@ skills:
     Underscore: '2'
     
 experience:
-- title: Fullstack Developer @ FTBpro
+- title: Fullstack Developer @ HP Software
   years: '2014'
   description: 
-    "Analyzed and improved the load times of interstitial advertisements,
-    allowing them to be deployed for effective monitization on the mobile web site.
-    Played a large part in fixing last-minute bugs in order to prepare a major new version of the application for deployment."
-- title: Fullstack Developer @ Perion
-  years: '2014'
+    "- Helped develop an innovation project to help NodeJS developers debug their servers in PaaS environment (production).\n
+    - Developed most of the Instrumentation Module which is the heart of this project. This package can analyze NodeJS applications while they are loading and enable the developer track specific functions (similar to a debugger but this one is an offline debugger meaning it “records” the data rather enable the developer to step into actual running code).
+The developer can get the exact values that have entered a specific function(s) and the exact output values that came at the other end. The instrumentation also logs the stack trace for the tracked function.\n
+    - Working in AGILE SCRUM Cycles\n
+    - Developing cutting edge NodeJS internals code"
+- title: JavaScript Developer @ Totango
+  years: '2013-2014'
   description: 
-    "- Took the initiative to introduce modern web development practices on both the client and server
-    - Asynchronous module loading of Javascript (using require.js)
-    - Server-side tests to help with code quality
-    - An ORM for accessing the database layer
-    - CSS preprocessing (using SASS and Compass)
-    - Promises in order to manage callback complexity on the server (Node.js)
-    - Instrumental in helping the entire team to launch the platform in a useable state"
-- title: Python & JS Developer @ Healarium
-  years: '2013'
+    "Totango develops Business Grade Analytics service helping clients monitor their users activity within the customer website. Totango gather's up various activities their users made perform on the client side.\n
+    - Part of the UI team developing new features using Ember.js framework with HTML and LESS technologies.\n
+    - Working in AGILE SCRUM Cycles\n
+    - Developing cutting edge UI using Ember.js, handlebars, JavaScript, jQuery, LESS, CSS3\n
+    - Working in an existing environment that forced the development team to combine existing GWT infrastructure with Ember.js."
+- title: JavaScript Developer @ Kontera Technologies
+  years: '2012-2013'
   description: 
-    "- Worked with all aspects of the code base, both server-side (Django and Python) and client-side (JavaScript and CSS3/HTML5).
-    - Main developer in a complete redesign from scratch of the of the web interface, using modern coding practices, CSS3, and ensuring cross-browser compatibility. 
-      The project introduced modern web design tools and frameworks (SASS/Compass and Foundation).
-    - Responsible for a significant clean-up of legacy JavaScript code, enabling use of modern techniques for loading JavaScript and dealing with dependencies.
-    - Responsible for creating a completely new administration page in the client's web application to handle a large feature addition, 
-      involving both server-side development of an API and a complete implementation of the client side of the page. 
-      The result was a new general framework for creating administration pages in the client's web application using Backbone.js for the client-side framework, 
-      which is expected to dramatically decrease the amount of time necessary for creating similar pages in the future, and to increase the consistency and maintainability of this and similar pages.
-    - Instrumental in delivering a new major version of the client's software to a major client, which fulfilled the contractual obligation regarding features, and was delivered on time and with good quality (low bug count)."
-
+    "- Joining Mobile development team. Developing sophisticated HTML/JavaScript based client applications that runs on iPad and various Android tablets.\n
+    - Developing client side using jQuery, JavaScript, CSS and HTML.\n
+    - Developing some server side features using Ruby on Rails servers"
+- title: FrontEnd Developer @ Conduit
+  years: '2012'
+  description: 
+    "- Working as a member of a special research team at Conduit.\n
+    - Developing Client side application using CoffeeScript (with Sublime Text 2) and jQuery for a fast and compact code.\n
+    - Running under Ruby On Rails. The server has been developed using RoR, client side code uses both .erb file and HTML/JavaScript."
+- title: FrontEnd Developer @ MagicHoldem
+  years: '2011-2012'
+  description: 
+    "- Developed an ASP.NET MVC 3.0 based Back-Office application, using advanced technologies such as DI with Ninject. Unit Testing with Mock.\n
+    - Developing with jQuery and CSS 3 plus traditional Javascript.\n
+    - Using Repository Design Pattern and LINQ and no-sql paradigm for an extensive DAL\n
+    - Developing with Entity Framework 4.2 Code.\n
+    - The entire site and application runs under Microsoft Azure Cloud"
+- title: FrontEnd Developer @ Verint
+  years: '2009-2012'
+  description: 
+    "- Developing new products for an existing multi platform application. Using complex XSL, JavaScript and HTML technologies.
+Conducting a thorough technical research in order to add Virtualization
+technology based features to a high volume and sensitive product."
