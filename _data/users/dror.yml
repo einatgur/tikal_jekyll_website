@@ -31,7 +31,7 @@ experience:
     - Developed most of the Instrumentation Module which is the heart of this project. This package can analyze NodeJS applications while they are loading and enable the developer track specific functions (similar to a debugger but this one is an offline debugger meaning it “records” the data rather enable the developer to step into actual running code).
 The developer can get the exact values that have entered a specific function(s) and the exact output values that came at the other end. The instrumentation also logs the stack trace for the tracked function.\n
     - Working in AGILE SCRUM Cycles\n
-    - Developing cutting edge NodeJS internals code"\n
+    - Developing cutting edge NodeJS internals code\n"
 - title: JavaScript Developer @ Totango
   years: '2013-2014'
   description: 
