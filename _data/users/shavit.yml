@@ -3,20 +3,49 @@ id: 31973
 login: shavit
 first_name: Shavit
 last_name: Cohen
-description: 
-about: ''
-follow_me_urls:
-- il.linkedin.com/pub/shavit-cohen/10/998/356
+description: JavaScript Developer
+about: 'Javascript Full-Stack developer'
+follow_me_urls: ['https://www.linkedin.com/pub/shavit-cohen/10/998/356']
 image_path: pictures/picture-31973-1383031079.jpg
-permalink: /shavit
+permalink: /js/shavit
 skills:
   expert_skills:
-    JavaScript: '5'
-    JavaScript - Events: '5'
-    OOJS: '5'
+    Javascript: '6'
+    .NET: '6'
+    SQL: '6'
+    AJAX: '3'
     jQuery: '5'
-    .NET: '5'
-  developer_skills:
-    CSS3: '2'
-    SQL: '2'
     AngularJS: '2'
+    Express: '1'
+    CSS3: '3'
+  developer_skills:
+    Cross Browser Development: '6'
+    NodeJS: '2'
+    Backbone: '2'
+  
+experience:
+- title: Fullstack Developer @ Fortscale
+  years: '2014'
+  description: 
+    "A promising start-up that offers a security services to companies by providing security tools which alerts and monitors threats from inside like information theft, brute-force attack, unauthorized access, and more.
+The product interface build on top of Angular.JS framework and uses d3.js extensively for showing graphs and interactive visualizations.\n\n
+      - Writing generic configurable (JSON) modules.\n
+      - Building interactive visualizations using d3.js\n
+      - Writing the client side unit-test infrastructure using karma\n
+      - Writing server-side unit-tests (Java)\n
+      - Writing Shell scripts (Unix)\n"  
+- title: Fullstack Developer @ My6Sense
+  years: '2013'
+  description: 
+    "My6Sense provides a platform for advertisers. Their Big-Data, Machine-learning technology can find the semantic link between users and a content on websites (blogs) or mobile-apps then suggests suitable interactive ads for the user.
+My6Sense back office interface is build upon Angular.JS framework, uses Node.js and MySql DB.\n\n
+    Client Side:\n
+      - Writing different modules by using all the angular.js arsenal: e.g directive, services, filters, views and controllers.\n
+      - Embedding restrictions and roles mechanism.\n
+      - Design implementation using Bootstrap.\n\n
+    Server Side (Node.JS):\n
+      - Building OAuth mechanism.\n
+      - Working with passport.js\n
+      - Building REST APIs\n
+      - Working with sequelizer.js\n
+      - Building and maintaining the integration process using grunt and Unix."
