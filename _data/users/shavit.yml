@@ -39,11 +39,11 @@ The product interface build on top of Angular.JS framework and uses d3.js extens
   description: 
     "My6Sense provides a platform for advertisers. Their Big-Data, Machine-learning technology can find the semantic link between users and a content on websites (blogs) or mobile-apps then suggests suitable interactive ads for the user.
 My6Sense back office interface is build upon Angular.JS framework, uses Node.js and MySql DB.\n\n
-    Client Side:\n
+    Client Side:\n\n
       - Writing different modules by using all the angular.js arsenal: e.g directive, services, filters, views and controllers.\n
       - Embedding restrictions and roles mechanism.\n
       - Design implementation using Bootstrap.\n\n
-    Server Side (Node.JS):\n
+    Server Side (Node.JS):\n\n
       - Building OAuth mechanism.\n
       - Working with passport.js\n
       - Building REST APIs\n
